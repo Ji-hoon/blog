@@ -6,8 +6,8 @@ logo_url:           https://avatars.githubusercontent.com/u/6611105?v=4 # Get it
 
 # Site Settings
 url:                https://ji-hoon.github.io/ # main url
-baseurl:            /blog
-permalink:          /:title # Post permalink
+baseurl:            blog
+permalink:          :title # Post permalink
 timezone:           Asia/South_Korea # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 mathjax:            true  # enables support for mathjax - set to 'false' to disable
 social_share_previews: true
