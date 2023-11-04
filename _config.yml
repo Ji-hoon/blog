@@ -26,7 +26,7 @@ exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile", "scr
 plugins:
   - jekyll-sitemap
 
-
+#disqus
 disqus : 
   comments: true
   shortname : 'github-blog-ttbitmwjqf'
