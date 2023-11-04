@@ -18,7 +18,7 @@ updated: 2023-10-30 00:01
 
  [2. 스키마 Schema](#2-스키마-schema)
 
-[3. ERD (Entity-Relationship Diagram)](#3-ERD-entity-relationship-diagram)
+[3. ERD (Entity-Relationship Diagram)](#3-erd-entity-relationship-diagram)
 
 
 &nbsp;
