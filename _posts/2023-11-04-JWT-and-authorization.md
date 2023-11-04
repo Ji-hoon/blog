@@ -3,8 +3,6 @@ title: Node.js에서 JWT를 이용한 토큰 발급 및 검증 로직 구현하�
 updated: 2023-11-04 10:00
 ---
 
-# Node.js에서 JWT를 이용한 토큰 발급 및 검증 로직 구현하기
-
 &nbsp;
 
 ![Elice Banner](/blog/assets/elice/SW7_top_banner.png)
