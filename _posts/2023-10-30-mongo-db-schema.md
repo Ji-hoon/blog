@@ -104,7 +104,7 @@ create라는 메소드를 사용해서 newUser 객체에 담긴 정보로 User �
 스키마에서 필수값으로 설정된 userName(이름), email(이메일 주소),password(비밀번호)를 제외한 값이 없어도 User 도큐먼트를 생성할 수 있습니다.
 
 
-
+&nbsp;
 
 ## 3. ERD (Entity-Relationship Diagram)
 ERD는 Entity Relation Diagram의 약자로 개체-관계 다이어그램이라고도 불리며, 데이터베이스의 구조와 관계를 시각적으로 표현하는 도구입니다. ERD는 데이터베이스 설계 과정에서 사용되며, 엔티티(개체)와 엔티티 간의 관계를 그래픽으로 표현합니다.
