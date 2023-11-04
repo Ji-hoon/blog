@@ -28,8 +28,7 @@ plugins:
 
 #disqus
 disqus : 
-  comments: true
-  shortname : 'github-blog-ttbitmwjqf'
+  shortname :       'github-blog-ttbitmwjqf'
 
 defaults:
   -
