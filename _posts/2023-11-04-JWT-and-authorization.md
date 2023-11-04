@@ -100,7 +100,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoic2FtcGxlX2lkIiwicm9sZSI6IlV
 위에서 생성한 토큰은 [https://jwt.io](https://jwt.io/) 에서 확인해볼 수 있습니다. 이 때 서명 영역의 secret key를 바꿔 보면, Invalid Signature 라고 표시되는 걸 확인할 수 있습니다. (payload에 있는 data를 변경하려면, secret key를 알고 있어야 한다는 의미 이기도 합니다.)
 &nbsp;
 
-![jwt example](../assets/posts/asset-jwt-example.png)
+![jwt example](/blog/assets/posts/asset-jwt-example.png)
 
 &nbsp;
 그럼 이제 코드 상에서는 토큰의 유효성 여부를 어떻게 검증할 수 있는지 코드로 살펴 보겠습니다.
@@ -135,7 +135,7 @@ router.post("/signin", async (req, res) => {
 &nbsp;
 
 위 라우터 코드가 정상적으로 실행되면 아래 이미지처럼 Response > Header > Authorization 필드 에 토큰이 담겨 반환되는 것을 확인할 수 있습니다.
-![로그인 응답](../assets/posts/asset-jwt-response.png)
+![로그인 응답](/blog/assets/posts/asset-jwt-response.png)
 
 
 &nbsp;
@@ -144,6 +144,7 @@ router.post("/signin", async (req, res) => {
 &nbsp;
 
 응답받은 JWT는 클라이언트가 사용자 인증이 필요한 HTTP 요청을 서버로 보낼 때, HTTP Header의 Authorization 필드에 아래 형태로 담아 전송합니다.
+
 | Key          | Value           |
 | -------------|-----------------|
 | Authorization| Bearer {jwt}    |
@@ -216,6 +217,6 @@ export { login-middleware };
 
 ---
 &nbsp;
-[![Elice UTM Banner](/assets/elice/SW7_jihoonkim_bottom_banner.png)](https://elice.training/track/sw?utm_source=sw7&utm_medium=blog&utm_campaign=challenge&utm_content=m2gzitm8b)
+[![Elice UTM Banner](/blog/assets/elice/SW7_jihoonkim_bottom_banner.png)](https://elice.training/track/sw?utm_source=sw7&utm_medium=blog&utm_campaign=challenge&utm_content=m2gzitm8b)
 &nbsp;
 > 태그 Tag : #엘리스트랙 #엘리스트랙후기 #리액트네이티브강좌 #온라인코딩부트캠프 #온라인코딩학원 #프론트엔드학원 #개발자국비지원 #개발자부트캠프 #국비지원부트캠프 #프론트엔드국비지원 #React #Styledcomponent #React Router Dom #Redux #Typescript #Javascript
