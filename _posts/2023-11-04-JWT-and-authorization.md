@@ -1,6 +1,8 @@
 ---
 title: Node.js에서 JWT를 이용한 토큰 발급 및 검증 로직 구현하기
 updated: 2023-11-04 10:00
+layout: default
+comments: true
 ---
 
 # Node.js에서 JWT를 이용한 토큰 발급 및 검증 로직 구현하기
@@ -226,7 +228,4 @@ export { login-middleware };
 &nbsp;
 > 태그 Tag : #엘리스트랙 #엘리스트랙후기 #리액트네이티브강좌 #온라인코딩부트캠프 #온라인코딩학원 #프론트엔드학원 #개발자국비지원 #개발자부트캠프 #국비지원부트캠프 #프론트엔드국비지원 #React #Styledcomponent #React Router Dom #Redux #Typescript #Javascript
 
----
-layout: default
-comments: true
----
+ 

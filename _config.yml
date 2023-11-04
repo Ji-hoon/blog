@@ -27,6 +27,9 @@ plugins:
   - jekyll-sitemap
 
 
+disqus : 
+  comments: true
+  shortname : 'github-blog-ttbitmwjqf'
 
 defaults:
   -
