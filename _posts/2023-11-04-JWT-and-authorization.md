@@ -7,7 +7,7 @@ updated: 2023-11-04 10:00
 
 &nbsp;
 
-![Elice Banner](/assets/elice/SW7_top_banner.png)
+![Elice Banner](/blog/assets/elice/SW7_top_banner.png)
 
 
 인증에는 다양한 방법이 있지만, 이번에는 다양한 클라이언트에서 범용적으로 사용될 수 있는 JWT를 이용해서 로그인 및 토큰 인증 기능을 구현해보았습니다.
