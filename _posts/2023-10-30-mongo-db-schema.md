@@ -66,7 +66,7 @@ MongoDB에 가입하면 **Cloud SaaS** 형태로 제공되는 **Atlas** 또는 �
 
 &nbsp;
 
-여기서는 Username과 password, 접근할 개발환경을 설정하게 됩니다. 여기서 설정한 값들은 개발 환경에서 MongoDB에 접근할 때 사용하게 됩니다.** Create User** 버튼을 클릭하여 접속 계정을 생성합니다.
+여기서는 Username과 password, 접근할 개발환경을 설정하게 됩니다. 여기서 설정한 값들은 개발 환경에서 MongoDB에 접근할 때 사용하게 됩니다. **Create User** 버튼을 클릭하여 접속 계정을 생성합니다.
 
 
 &nbsp;
@@ -103,36 +103,82 @@ MongoDB에 가입하면 **Cloud SaaS** 형태로 제공되는 **Atlas** 또는 �
 
 &nbsp;
 
-![Quick start - Connect](/blog/assets/posts/asset-mongodb-atlas-step4-drivers.png)
+![Quick start - Drivers ](/blog/assets/posts/asset-mongodb-atlas-step4-drivers.png)
 
 &nbsp;
 
-![Quick start - Connect](/blog/assets/posts/asset-mongodb-atlas-step4-connection-code.png)
+![Quick start - Copy Connection Code](/blog/assets/posts/asset-mongodb-atlas-step4-connection-code.png)
 
 &nbsp;
 
 다시 데이터베이스 화면으로 돌아가서, db에 연결할 수 있는 주소를 얻기 위해 Connect 버튼을 클릭해서 모달로 진입하고, Driver 메뉴를 클릭하면 표시되는 화면에서 복사 버튼을 클릭해서 접근 주소를 복사할 수 있습니다.
 
+&nbsp;
 
+접근 주소는 아래 처럼 필요한 정보를 넣어 수정합니다.
+
+
+```javascript
+// 변수 적용 전
+const connectionURL = "mongodb+srv://{username}:{password}@cluster0.6fpsvld.mongodb.net/{databse name}?retryWrites=true&w=majority"
+
+// username이 guest, password가 abcd, 그리고 접근할 database name이 user-model 일 때
+const connectionURL = "mongodb+srv://guest:abcd@cluster0.6fpsvld.mongodb.net/user-model?retryWrites=true&w=majority"
+```
 
 &nbsp;
 
 ## 3. 개발 환경에서 MongoDB에 접근하기
 
-Atlas에서 Database 환경을 구축했다면, 이제 로컬 개발환경에서 MongoDB에 접근해보도록 하겠습니다.
+Atlas에서 Database 환경을 구축하고 접근 주소를 생성했다면, 이제 로컬 개발환경에서 MongoDB에 접근해보도록 하겠습니다.
 
 &nbsp;
 
-먼저 Mongoose를 설치합니다.
+먼저 터미널에서 MongoDB와 Mongoose를 설치합니다.
 ```shell
+$ npm install mongodb
 $ npm install mongoose
 ```
+&nbsp;
 
+index.js 파일 안에 mongoose를 import 하여 사용합니다.
+
+> 아래 예시에서는 connectionURL 변수에 username과 password를 그대로 작성했지만, 환경 변수를 만들어서 따로 사용하는 것이 좋습니다.
+
+```javascript
+import express from "express";
+import mongoose from 'mongoose';
+
+const port = 3000;
+const app = express();
+
+const connectionURL = "mongodb+srv://guest:abcd@cluster0.6fpsvld.mongodb.net/user-model?retryWrites=true&w=majority";
+
+mongoose
+  .connect(connectionURL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.log(err));
+
+app.listen(port);
+```
+&nbsp;
+
+이제 터미널에서 작성한 index.js를 실행합니다. MongoDB와 연결되면 터미널에 `Connected to MongoDB` 문구가 표시되는 것을 확인할 수 있습니다. 
+```shell
+$ node index.js
+```
 
 
 &nbsp;
 
 ## 4. 스키마 Schema 정의하기
+
+마지막으로 스키마를 작성해서, 연결된 콜렉션에 도큐먼트를 추가하는 작업을 해보겠습니다.
+
+&nbsp;
 
 스키마는 데이터베이스에 데이터가 저장되는 형태 or 구조를 의미합니다. NoSQL DB는 엄격한 설계를 따르지는 않지만 MongoDB에서는 스키마를 정의해두면 도큐먼트 생성 또는 수정 시 데이터 타입을 체크해주는 기능을 제공합니다. 
 
@@ -194,7 +240,7 @@ const newUser = {
 User.create(newUser);
 ```
 &nbsp;
-create라는 메소드를 사용해서 newUser 객체에 담긴 정보로 User 도큐먼트를 생성하게 됩니다. 실제 DB에 생성되는 도큐먼트 형태는 아래와 같습니다.
+create라는 메소드를 사용해서 newUser 객체에 담긴 정보로 User 도큐먼트를 생성하게 됩니다. 실제 DB에 생성되는 도큐먼트 형태는 아래와 같습니다. (user-model > users 콜렉션 하위에 생성)
 &nbsp;
 
 ![새롭게 생성된 도큐먼트](/blog/assets/posts/asset-mongodb-model-example.png)
