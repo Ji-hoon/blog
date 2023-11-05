@@ -1,7 +1,9 @@
 ---
-title: [W8] MongoDB의 Model Schema 정의하기
+title: MongoDB의 Model Schema 정의하기
 updated: 2023-10-30 00:01
 ---
+
+> Elice SW Track 7기 - 8주차 진행 내용입니다.
 
 &nbsp;
 
