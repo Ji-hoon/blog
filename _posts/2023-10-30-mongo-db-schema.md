@@ -21,7 +21,7 @@ updated: 2023-10-30 00:01
 
 [3. 개발 환경에서 MongoDB에 접근하기](#3-개발-환경에서-mongodb에-접근하기)
 
-[4. 스키마 Schema 정의하기](#4-스키마-schema-정의하기)
+[4. 스키마 Schema 정의하고 도큐먼트 추가하기](#4-스키마-schema-정의하고-도큐먼트-추가하기)
 
 
 &nbsp;
@@ -164,7 +164,6 @@ mongoose
 
 app.listen(port);
 ```
-&nbsp;
 
 이제 터미널에서 작성한 index.js를 실행합니다. MongoDB와 연결되면 터미널에 `Connected to MongoDB` 문구가 표시되는 것을 확인할 수 있습니다. 
 ```shell
@@ -174,9 +173,9 @@ $ node index.js
 
 &nbsp;
 
-## 4. 스키마 Schema 정의하기
+## 4. 스키마 Schema 정의하고 도큐먼트 추가하기
 
-마지막으로 스키마를 작성해서, 연결된 콜렉션에 도큐먼트를 추가하는 작업을 해보겠습니다.
+마지막으로 스키마를 작성해서, 연결된 콜렉션에 도큐먼트 Document 를 추가하는 작업을 해보겠습니다.
 
 &nbsp;
 
@@ -240,7 +239,7 @@ const newUser = {
 User.create(newUser);
 ```
 &nbsp;
-create라는 메소드를 사용해서 newUser 객체에 담긴 정보로 User 도큐먼트를 생성하게 됩니다. 실제 DB에 생성되는 도큐먼트 형태는 아래와 같습니다. (user-model > users 콜렉션 하위에 생성)
+create라는 메소드를 사용해서 newUser 객체에 담긴 정보로 User 도큐먼트를 생성하게 됩니다. 코드를 실행하여 실제 DB에 생성되는 도큐먼트 형태는 아래와 같습니다. (user-model > users 콜렉션 하위에 생성)
 &nbsp;
 
 ![새롭게 생성된 도큐먼트](/blog/assets/posts/asset-mongodb-model-example.png)
