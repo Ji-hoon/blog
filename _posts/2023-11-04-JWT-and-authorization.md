@@ -5,7 +5,6 @@ updated: 2023-11-04 10:00
 
 > Elice SW Track 7기 - 8주차 진행 내용입니다.
 
-&nbsp;
 
 ![Elice Banner](/blog/assets/elice/SW7_top_banner.png)
 
