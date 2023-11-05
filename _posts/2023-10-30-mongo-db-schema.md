@@ -122,8 +122,8 @@ MongoDB에 가입하면 **Cloud SaaS** 형태로 제공되는 **Atlas** 또는 �
 // 변수 적용 전
 const connectionURL = "mongodb+srv://{username}:{password}@cluster0.6fpsvld.mongodb.net/{databse name}?retryWrites=true&w=majority"
 
-// username이 guest, password가 abcd, 그리고 접근할 database name이 user-model 일 때
-const connectionURL = "mongodb+srv://guest:abcd@cluster0.6fpsvld.mongodb.net/user-model?retryWrites=true&w=majority"
+// username이 test, password가 testpassword, 그리고 접근할 database name이 user-model 일 때
+const connectionURL = "mongodb+srv://test:testpassword@cluster0.6fpsvld.mongodb.net/user-model?retryWrites=true&w=majority"
 ```
 
 &nbsp;
@@ -152,7 +152,7 @@ import mongoose from 'mongoose';
 const port = 3000;
 const app = express();
 
-const connectionURL = "mongodb+srv://guest:abcd@cluster0.6fpsvld.mongodb.net/user-model?retryWrites=true&w=majority";
+const connectionURL = "mongodb+srv://testuser:testpassword@cluster0.6fpsvld.mongodb.net/user-model?retryWrites=true&w=majority";
 
 mongoose
   .connect(connectionURL, {
