@@ -160,8 +160,11 @@ export default class UserService {
 
 &nbsp;
 
-이 기능을 사용해 저장하면, 현재 요청과 응답 값을 그대로 저장하게 됩니다.
+이 기능을 사용해 저장하면, 현재 요청과 응답 값을 그대로 저장하게 됩니다. 아래 화면은 201 응답 코드를 받은 응답 예시를 저장한 경우입니다. 기존에 만들어둔 리퀘스트 하위에 여러 개의 예시가 존재하는 것을 확인하실 수 있습니다.
 
+&nbsp;
+
+![signup request](/blog/assets/posts/asset-postman-04-201.png)
 
 &nbsp;
 
