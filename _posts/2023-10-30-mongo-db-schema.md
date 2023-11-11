@@ -1,4 +1,5 @@
 ---
+layout: post
 title: MongoDB에서 Model Schema로 Document 생성하기
 updated: 2023-10-30 00:01
 ---

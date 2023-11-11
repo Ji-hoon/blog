@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Mongoose 메소드 제대로 이해하고 사용하기
 updated: 2023-11-12 01:00
 ---
