@@ -22,7 +22,7 @@ updated: 2023-11-11 16:01
 ## 목차
 [1. Postman이란?](#1-postman이란)
 
-[2. 콜렉션 Collection과 리퀘스트 Request](#2-콜렉션-collection과-리퀘스트-Request)
+[2. 콜렉션 Collection과 리퀘스트 Request](#2-콜렉션-collection과-리퀘스트-request)
 
 [3. 리퀘스트 요청 샘플 저장하기](#3-리퀘스트-요청-샘플-저장하기)
 
@@ -156,7 +156,7 @@ export default class UserService {
 
 &nbsp;
 
-![signup request](/blog/assets/posts/asset-postman-02-signup-post-request.png)
+![signup request](/blog/assets/posts/asset-postman-03-save-example.png)
 
 &nbsp;
 
