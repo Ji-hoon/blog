@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Mongoose 메소드 제대로 이해하고 사용하기
-updated: 2023-11-12 01:00
+updated: 2023-11-11 01:00
 ---
 
 > Elice SW Track 7기 - 9주차 진행 내용입니다.
