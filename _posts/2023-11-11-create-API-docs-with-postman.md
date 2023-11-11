@@ -15,7 +15,7 @@ updated: 2023-11-11 16:01
 &nbsp;
 
 ## 목차
-[1. Postman이란?](#1-postmand이란)
+[1. Postman이란?](#1-postman이란)
 
 [2. 콜렉션 Collection 생성하고 관리하기](#2-콜렉션-collection-생성하고-관리하기)
 
@@ -52,12 +52,13 @@ Postman에 가입하면 기본적으로 1개의 **Workspace**에 참여하게 �
 
 &nbsp;
 
-![New collection](/blog/assets/asset-postman-01-new-request.png)
+![New collection](/blog/assets/posts/asset-postman-01-new-request.png)
 
 &nbsp;
 
 새로운 리퀘스트를 만들고 HTTP Method, 리퀘스트의 이름, params, request body, request header 등을 설정할 수 있습니다. 아래는 미리 생성해둔 회원가입 API 리퀘스트 화면입니다. POST 요청이기 때문에 params 필드는 사용하지 않고 request body에만 API로 요청할 값을 JSON 형태로 작성한 것을 확인할 수 있습니다.
 
+&nbsp;
 
 &nbsp;
 화면 우측의 **Send** 버튼을 클릭하여 설정된 주소로 API 요청을 보낼 수 있으며, 화면 하단에 요청에 대한 응답 결과가 나타납니다. 아래 화면은 서버 측으로 보낸 요청이 성공하여 status code를 201로 받았으며, 요청에 대한 응답으로 성공 메시지와 db에 생성된 user 객체의 정보를 반환 받았다는 의미입니다. 
