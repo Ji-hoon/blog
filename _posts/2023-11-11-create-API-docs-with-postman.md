@@ -14,7 +14,7 @@ updated: 2023-11-11 16:01
 
 &nbsp;
 
-이 API는 통상 서버 사이드에서 작성을 하게 되는데, 협업을 하게되면 클라이언트 개발자들에게 작성된 API를 어떤 방식으로 > 어떤 데이터를 보내서 > 어떠한 응답을 받게 되는지 가이드(명세서)를 제공하는 것이 중요합니다. 오늘은 그러한 가이드를 쉽게 작성할 수 있게 도와주는 Postman을 통해서 명세서를 작성해보겠습니다.
+이 API는 통상 서버 사이드에서 작성을 하게 되는데, 협업을 하게되면 클라이언트 개발자들에게 작성된 API를 ① 어떤 방식(method)으로 ② 어떤 데이터를 보내서 ③ 어떠한 응답을 받게 되는지 가이드(명세서)를 제공하는 것이 중요합니다. 오늘은 그러한 가이드를 쉽게 작성할 수 있게 도와주는 Postman을 통해서 명세서를 작성해보겠습니다.
 
 
 &nbsp;
@@ -156,7 +156,7 @@ export default class UserService {
 
 &nbsp;
 
-![signup request](/blog/assets/posts/asset-postman-03-save-example.png)
+![example request](/blog/assets/posts/asset-postman-03-save-example.png)
 
 &nbsp;
 
@@ -164,7 +164,52 @@ export default class UserService {
 
 &nbsp;
 
-![signup request](/blog/assets/posts/asset-postman-04-201.png)
+![example 201](/blog/assets/posts/asset-postman-04-201.png)
+
+
+&nbsp;
+
+## 4. 리퀘스트 도큐멘테이션 작성하기
+
+응답 예시까지 저장했다면, 이제 API를 설명해주는 도큐멘테이션 documentation 을 작성합니다. 리퀘스트 우측의 **Documentation** 버튼을 클릭하면 설명을 입력할 수 있는 화면이 제공되고, 여기에 간략한 설명과 발생 가능한 응답 코드 그리고 해당 코드가 발생하는 조건 등을 기재하여 이해하기 쉽게 기술합니다.
+
+&nbsp;
+
+![documentation](/blog/assets/posts/asset-postman-05-documentation.png)
+
+
+&nbsp;
+
+## 5. 콜렉션 도큐먼트 퍼블리싱하기
+
+이제 리퀘스트 별로 도큐멘테이션을 작성하고, 응답 예시도 저장했다면 본인 계정 뿐만아니라 다른 협업하는 사람들에게도 확인할 수 있도록 콜렉션 문서를 **Publish**를 해 보도록 하겠습니다.
+
+&nbsp;
+
+사용자 콜렉션을 클릭해서 사용자 콜렉션 상세 화면으로 진입합니다. 이어서 화면 하단에 **View complete documentation** 버튼을 클릭합니다. 
+
+&nbsp;
+
+![complete documentation](/blog/assets/posts/asset-postman-06-complete-doc.png)
+
+&nbsp;
+
+화면 우측 상단의 **Publish**를 클릭하여 다음 화면으로 진입합니다.
+
+&nbsp;
+
+![publish documentation](/blog/assets/posts/asset-postman-07-publish.png)
+
+&nbsp;
+
+화면 하단 **Publish**를 클릭하면 이제 출판된 URL을 통해 API 콜렉션 도큐먼트에 접근할 수 있습니다.
+
+&nbsp;
+
+![publish documentation 2](/blog/assets/posts/asset-postman-08-publish-confirm.png)
+
+> 사용자 API 콜렉션 : [링크](https://documenter.getpostman.com/view/30577749/2s9YXb9kQJ)
+
 
 &nbsp;
 
