@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mongoose 메소드 제대로 이해하고 사용하기
+title: Mongoose CRUD 메소드 제대로 이해하고 사용하기
 updated: 2023-11-07 01:00
 ---
 
@@ -162,7 +162,7 @@ export default class UserService {
 
 &nbsp;
 
-아래 예시는 단일 도큐먼트만 수정하고, 수정된 도큐먼트를 반환받도록 동작하는 코드입니다. 검색 조건으로 shortId와 일치하는 도큐먼트를 찾고, data 인자로 넘어온 객체 중에서 userName, age, phone, address를 업데이트한 뒤 matchedUser객체에 업데이트된 도큐먼트를 반환합니다.
+아래 예시는 단일 도큐먼트만 수정하고, 수정된 도큐먼트를 반환받도록 동작하는 코드입니다. 검색 조건으로 shortId와 일치하는 도큐먼트를 찾고, data 인자로 넘어온 객체 중에서 userName, age, phone, address를 업데이트한 뒤 matchedUser객체에 업데이트된 도큐먼트를 반환합니다. 수정된 도큐먼트를 반환 받으려면, `{수정할 정보}` 다음에 `{ new:true}` 옵션을 추가해야 합니다.
 
 ```javascript
 import { User } from '../db/models/users/user-model.js';
