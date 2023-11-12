@@ -18,7 +18,7 @@ updated: 2023-11-09 01:00
 ## 목차
 [1. Multer란?](#1-multer란)
 
-[2. Multipart / form-data 이해하기](#2-multipart-form-data-이해하기)
+[2. Multipart / form-data 이해하기](#2-multipart--form-data-이해하기)
 
 [3. 클라이언트 코드 작성하기](#3-클라이언트-코드-작성하기)
 
