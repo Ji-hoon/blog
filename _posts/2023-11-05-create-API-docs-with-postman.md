@@ -1,6 +1,6 @@
 ---
 title: 포스트맨 Postman 으로 API 명세서 만들기
-updated: 2023-11-11 16:01
+updated: 2023-11-05 16:01
 ---
 
 > Elice SW Track 7기 - 8주차 진행 내용입니다.
