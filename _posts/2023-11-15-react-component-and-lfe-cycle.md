@@ -14,7 +14,7 @@ React는 컴포넌트(Component) 단위의 개발 방식을 통해 재사용성,
 
 > 참고 - React로 사고하기 : [링크](https://ko.legacy.reactjs.org/docs/thinking-in-react.html)
 
-이번에는 React를 이해하기 위한 핵심 개념인 컴포넌트와 컴포넌트의 생명 주기(Life Cycle)에 대해 다뤄보겠습니다.
+이번에는 React를 이해하기 위한 핵심 개념인 컴포넌트와 컴포넌트의 생명주기(Life Cycle)에 대해 다뤄보겠습니다.
 
 
 &nbsp;
@@ -24,7 +24,7 @@ React는 컴포넌트(Component) 단위의 개발 방식을 통해 재사용성,
 
 [2. React 컴포넌트의 종류](#2-react-컴포넌트의-종류)
 
-[3. 컴포넌트의 생명 주기와 메서드](#3-컴포넌트의-생명-주기와-메서드)
+[3. 컴포넌트의 생명주기와 메서드](#3-컴포넌트의-생명주기와-메서드)
 
 [4. 함수 형 컴포넌트에서의 생명주기 관리](#4-함수-형-컴포넌트에서의-생명주기-관리)
 
@@ -105,14 +105,11 @@ class CustomComponent extends React.Component {
       return (
         <>
           <h1>My Favorite Color is 
-            <em style={{color:this.state.color}}> {this.state.color}</em>
+            <em> {this.state.color}</em>
           </h1>
-          <button style={{color: "#FFF"}}
-                  onClick={() => {this.setState({color: "Orange"});
+          <button onClick={() => {this.setState({color: "Orange"});
             }}>Orange</button>
-          <span style={{padding:4}}></span>
-          <button style={{color: "#FFF"}}
-                  onClick={() => {this.setState({color: "Red"});
+          <button onClick={() => {this.setState({color: "Red"});
             }}>Red</button>
         </>
       )
@@ -126,11 +123,9 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div style={{textAlign:"center"}}>
+      <div>
         {this.state.visible && <CustomComponent /> }
-        <div style={{height: 10}}></div>
-        <button style={{color: "#FFF", backgroundColor: "RED"}}
-                onClick={ () => { this.setState({visible:false });
+        <button onClick={ () => { this.setState({visible:false });
             }} >Remove</button>
       </div>
     );
