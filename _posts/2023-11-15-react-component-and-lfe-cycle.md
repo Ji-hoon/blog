@@ -146,7 +146,7 @@ root.render(<App />);
 위에서 클래스형 컴포넌트에서 생명주기를 관리하는 메서드들을 살펴봤습니다. 생명주기 별로 독립된 메서드를 호출하는 형태로 사용되던 것과 비교하여, 함수형 컴포넌트에서 생명주기 메서드는 `useEffect` 훅 하나로 생명주기를 관리할 수 있습니다. 위에서 클래스형 컴포넌트로 작성했던 기능과 동일한 동작을 수행하는 함수형 컴포넌트 예시 코드를 작성해 보겠습니다.
 
 ```jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom/client'	
 
 function CustomComponent() {
@@ -196,7 +196,7 @@ function App() {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
 ```
-첫 번째 useEffect 훅에는 빈 배열을 할당하여 didMount와 unMount 생명주기에 대응하는 코드를 작성하고, 두 번째 useEffect 훅에는 update 시 실행할 코드를 작성했습니다. 함수형 컴포넌트에서는 이렇게 간단하게 생명주기를 관리할 수 있습니다.
+첫 번째 useEffect 훅에는 빈 배열을 할당하여 didMount와 unMount 생명주기에 대응하는 코드를 작성하고, 두 번째 useEffect 훅에는 update 시 실행할 코드를 작성했습니다. 함수형 컴포넌트에서는 비교적 간단하게 생명주기를 관리할 수 있습니다.
 
 
 &nbsp;
