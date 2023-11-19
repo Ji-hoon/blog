@@ -1,5 +1,5 @@
 ---
-title: React 컴포넌트(Component)와 생명 주기(Life Cycle)
+title: React 컴포넌트(Component)와 생명주기(Life Cycle)
 updated: 2023-11-15 12:00
 ---
 
