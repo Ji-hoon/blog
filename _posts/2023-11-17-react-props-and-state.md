@@ -141,7 +141,7 @@ export default function InputElement({name, placeholder}) {
 
 위 컴포넌트에서는 Input의 입력 글자에 변경이 일어날 때, setUsername 메서드를 호출하여 username `State`를 변경하게 되므로, 입력된 글자에 변경이 일어날 때 마다 리렌더링을 하게 됨을 알 수 있습니다.
 
-![state console log](/blog/assets/elice/asset-props-and-state.gif)
+![state console log](/blog/assets/posts/asset-props-and-state.gif)
 
 
 
