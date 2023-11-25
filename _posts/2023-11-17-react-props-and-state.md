@@ -61,12 +61,12 @@ import ReactDOM from 'react-dom/client'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <InputElement name={"nickname"} size={16} />
-  </React.StrictMode>,
+    <InputElement name={"nickname"} placeholder={"내용을 입력하세요."} />
+  </React.StrictMode>
 )
 ```
 
-위 코드에서는 `Input` 컴포넌트를 불러와서, `name`과 `size`라는 2개의 `Props`를 해당 컴포넌트로 넘겨주고 있습니다.
+위 코드에서는 `Input` 컴포넌트를 불러와서, `name`과 `placeholder`라는 2개의 `Props`를 해당 컴포넌트로 넘겨주고 있습니다.
 
 &nbsp;
 
@@ -80,11 +80,11 @@ import React, { Component } from "react";
 class InputElement extends Component {
   render() {
     // props에서 값을 구조분해하여 변수에 할당
-    const { name, size } = this.props;
+    const { name, placeholder } = this.props;
 
     return (
       <input className={name} 
-        style={{fontSize: size}} />
+        placeholder={placeholder} />
     );
   }
 }
@@ -94,7 +94,7 @@ export default InputElement;
 
 ```
 
-`this.props`로 `Props`들을 변수로 할당하고, 그 값을 `className`, 그리고 `font-size`에 할당하고 있습니다.
+`this.props`로 `Props`들을 변수로 할당하고, 그 값을 `className`, 그리고 `placeholder`에 할당하고 있습니다.
 
 &nbsp;
 
@@ -105,11 +105,11 @@ export default InputElement;
 ```javascript
 import React from "react";
 
-export default function InputElement({name, size}) {
+export default function InputElement({name, placeholder}) {
   
   return (
     <input className={name} 
-           style={{fontSize: size}} />
+        placeholder={placeholder} />
   )
 }
 ```
@@ -125,12 +125,12 @@ export default function InputElement({name, size}) {
 ```javascript
 import React, { useState } from "react";
 
-export default function InputElement({name, size}) {
+export default function InputElement({name, placeholder}) {
   const [username, setUsername] = useState("");
   console.log(username);
   return (
     <input className={name} 
-           style={{fontSize: size}} 
+           placeholder={placeholder}
            value={username} 
            onChange={(event) => {
                 setUsername(event.target.value);
