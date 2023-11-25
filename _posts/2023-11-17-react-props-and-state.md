@@ -12,7 +12,7 @@ updated: 2023-11-17 12:00
 
 React를 이해하는데에 중요한 개념이 바로 `Props`와 `State`, 그리고 `Hooks` 라고 이전 포스팅에서 소개했었습니다. 이번에는 `Props`와 `State`의 개념과 컴포넌트에 어떻게 적용되는 지, 그리고 사용할 때 유의할 점에 대해서 다루도록 하겠습니다.
 
-> 참고 - 컴포넌트와 Props : [링크](https://ko.legacy.reactjs.org/docs/components-and-props.html) |  State와 생명주기 : [링크](https://ko.legacy.reactjs.org/docs/state-and-lifecycle.html)
+> 참고 : 컴포넌트와 Props [링크](https://ko.legacy.reactjs.org/docs/components-and-props.html) |  State와 생명주기 [링크](https://ko.legacy.reactjs.org/docs/state-and-lifecycle.html)
 
 
 
@@ -141,11 +141,9 @@ export default function InputElement({name, placeholder}) {
 
 위 컴포넌트에서는 Input의 입력 글자에 변경이 일어날 때, setUsername 메서드를 호출하여 username `State`를 변경하게 되므로, 입력된 글자에 변경이 일어날 때 마다 리렌더링을 하게 됨을 알 수 있습니다.
 
+&nbsp;
+
 ![state console log](/blog/assets/posts/asset-props-and-state.gif)
-
-
-
-
 
 
 &nbsp;
