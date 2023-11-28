@@ -84,7 +84,7 @@ export default function App() {
 
     return( 
         <>
-            <button style={{ outline: "none", padding: "4px 12px", borderRadius: 5}} 
+            <button style={ { outline: "none", padding: "4px 12px", borderRadius: 5} } 
                 className="button" onClick={() => setCount(count+1)}>클릭</button>
             <div>클릭한 횟수 : {count}</div>
         </>
@@ -133,7 +133,12 @@ $ npm install styled-components
 &nbsp;
 ## 4. Tailwind를 활용한 스타일링
 
-다음은 Tailwind를 활용해서 스타일링 하는 방법 입니다. Tailwind는 Bootstrap 처럼 외부 라이브러리에 정의된 스타일을 className을 사용해서 필요한 CSS를 할당할 수 있습니다. 
+다음은 Tailwind를 활용해서 스타일링 하는 방법 입니다. Tailwind는 Bootstrap 처럼 외부 라이브러리에 정의된 스타일을 className을 사용해서 필요한 CSS를 할당할 수 있습니다. 다음과 같이 install을 먼저 수행합니다.
+
+```shell
+~project-folder$ npm install -D tailwindcss postcss autoprefixer
+~project-folder$ npx tailwindcss init -p
+```
 
 
 
