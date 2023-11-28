@@ -33,7 +33,7 @@ updated: 2023-10-30 00:01
 ## 1. MongoDB란?
 
 MongoDB는 NoSQL DBMS중 하나로, JSON과 유사한 BSON 타입을 지원하기 때문에 웹 생태계에서 인기있는 DBMS 입니다. RDB 대비 비교적 설계가 단순하기 때문에 진입 장벽이 낮아 인기가 많습니다. 아래 링크에서 더 많이 알아보실 수 있으며 이번에는 MongoDB Atlas를 활용해서 모델(도큐먼트)를 만드는 것 까지 해보겠습니다.
-> MongoDB : [링크](https://www.mongodb.com/ko-kr)
+> MongoDB : [링크](https://www.mongodb.com/ko-kr){:target="_blank"}
 
 &nbsp;
 
