@@ -165,6 +165,28 @@ export default {
 @tailwind utilities;
 ```
 
+설정이 완료되었다면, 스타일링 하려는 엘리먼트의 className에 아래 처럼 클래스명을 할당합니다.
+
+```javascript
+import React, { useState } from 'react';
+import styled from 'styled-components';
+
+export default function App() {
+    const [count, setCount] = useState(0);
+
+    return( 
+        <div className="px-3 py-3">
+            <button className="bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm rounded-md"
+            onClick={() => setCount(count+1)}>클릭</button>
+            <div>클릭한 횟수 : {count}</div>
+        </div>
+    )
+}
+```
+&nbsp;
+
+![tailwind result](/blog/assets/posts/asset-react-css-tailwind.png)
+
 &nbsp;
 
 ---
