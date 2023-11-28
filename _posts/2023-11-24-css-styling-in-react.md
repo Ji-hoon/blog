@@ -12,7 +12,7 @@ updated: 2023-11-24 12:00
 
 React에서는 다양한 CSS 스타일링 방식을 사용할 수 있습니다. VanillaJS 처럼 클래스명을 할당한 뒤 별도 CSS 파일을 만들어서 스타일링 하거나, return 구문안에 직접 작성하는 방법, 그리고 Styled-components를 활용하는 방법, 마지막으로 Tailwind 같은 외부 라이브러리를 활용하는 방법이 있습니다.
 
-> 참고 - Styled-components : [링크](https://styled-components.com){:target="_blank"} |  Tailwind css with Vite : [링크](https://tailwindcss.com/docs/guides/vite){:target="_blank"}
+> 참고 - Styled-components : [링크](https://styled-components.com){:target="_blank"} /  Tailwind css with Vite : [링크](https://tailwindcss.com/docs/guides/vite){:target="_blank"}
 
 
 
