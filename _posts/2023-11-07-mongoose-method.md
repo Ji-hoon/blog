@@ -43,7 +43,7 @@ $ npm install mongoose
 
 이전에 작성했던 User 모델을 기준으로 주로 사용되는 메소드들을 알아보겠습니다.
 
-> 이전 글 : [MongoDB에서 Model Schema로 Document 생성하기](https://ji-hoon.github.io/blog/mongo-db-schema)
+> 이전 글 : [MongoDB에서 Model Schema로 Document 생성하기](https://ji-hoon.github.io/blog/mongo-db-schema){:target="_blank"}
 
 &nbsp;
 

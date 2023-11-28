@@ -12,7 +12,7 @@ updated: 2023-11-19 12:00
 
 이전 글에서 `React Hook`을 사용하기 위해서는 `함수형 컴포넌트`에서만 가능하다고 소개 드렸습니다. 이번에는 가장 많이 사용되는 `Hook`에는 어떤 것들이 있는지 다뤄보도록 하겠습니다.
 
-> 참고 - Hook 개요 : [링크](https://ko.legacy.reactjs.org/docs/hooks-intro.html)
+> 참고 - Hook 개요 : [링크](https://ko.legacy.reactjs.org/docs/hooks-intro.html){:target="_blank"}
 
 
 

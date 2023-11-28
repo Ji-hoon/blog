@@ -12,7 +12,7 @@ updated: 2023-11-17 12:00
 
 React를 이해하는데에 중요한 개념이 바로 `Props`와 `State`, 그리고 `Hooks` 라고 이전 포스팅에서 소개했었습니다. 이번에는 `Props`와 `State`의 개념과 컴포넌트에 어떻게 적용되는 지, 그리고 사용할 때 유의할 점에 대해서 다루도록 하겠습니다.
 
-> 참고 : 컴포넌트와 Props [링크](https://ko.legacy.reactjs.org/docs/components-and-props.html) /  State와 생명주기 [링크](https://ko.legacy.reactjs.org/docs/state-and-lifecycle.html)
+> 참고 : 컴포넌트와 Props [링크](https://ko.legacy.reactjs.org/docs/components-and-props.html){:target="_blank"} /  State와 생명주기 [링크](https://ko.legacy.reactjs.org/docs/state-and-lifecycle.html){:target="_blank"}
 
 
 

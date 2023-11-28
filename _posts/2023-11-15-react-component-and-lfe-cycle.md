@@ -12,7 +12,7 @@ updated: 2023-11-15 12:00
 
 React는 컴포넌트(Component) 단위의 개발 방식을 통해 재사용성, 효율성 그리고 확장성 높은 개발을 할 수 있도록 도와주는 라이브러리 입니다. React를 일반적인 자바스크립트 프로젝트에서 import하여 사용할 수도 있고, CRA(Create React App)이나 Vite, Svelte 같은 빌드 툴을 통해서 React 프로젝트를 구성하여 시작할 수 있습니다. (빌드 툴에 대해서는 다음에 자세히 다루도록 하겠습니다.)
 
-> 참고 - React로 사고하기 : [링크](https://ko.legacy.reactjs.org/docs/thinking-in-react.html)
+> 참고 - React로 사고하기 : [링크](https://ko.legacy.reactjs.org/docs/thinking-in-react.html){:target="_blank"}
 
 이번에는 React를 이해하기 위한 핵심 개념인 컴포넌트와 컴포넌트의 생명주기(Life Cycle)에 대해 다뤄보겠습니다.
 
@@ -54,7 +54,7 @@ React는 컴포넌트(Component) 단위의 개발 방식을 통해 재사용성,
 
 > 코드 길이와 가독성
 
-클래스형 컴포넌트는 컴포넌트의 **생명주기** 메소드를 구현해야 할 때 클래스의 구조로 인해 코드가 더욱 복잡해질 수 있습니다. 반면 함수형 컴포넌트는  [**Hooks**](https://ko.legacy.reactjs.org/docs/hooks-intro.html)를 사용하면 컴포넌트의 상태와 생명 주기와 관련된 로직을 함수 내에서 처리할 수 있어 코드의 구조가 단순해집니다.
+클래스형 컴포넌트는 컴포넌트의 **생명주기** 메소드를 구현해야 할 때 클래스의 구조로 인해 코드가 더욱 복잡해질 수 있습니다. 반면 함수형 컴포넌트는  [**Hooks**](https://ko.legacy.reactjs.org/docs/hooks-intro.html){:target="_blank"} 를 사용하면 컴포넌트의 상태와 생명 주기와 관련된 로직을 함수 내에서 처리할 수 있어 코드의 구조가 단순해집니다.
 
 > 컴포넌트의 성능
 

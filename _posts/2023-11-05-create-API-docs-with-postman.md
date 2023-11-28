@@ -39,7 +39,7 @@ updated: 2023-11-05 16:01
 ## 1. Postman이란?
 
 **Postman**은 API 테스트와 문서화 할 수 있는 플랫폼 입니다. API 리퀘스트를 콜렉션 단위로 모아두고 관리할 수 있으며, 별도로 문서를 작성하지 않아도 도큐멘테이션(명세서)을 작성할 수 있는 기능도 제공합니다.
-> Postman : [링크](https://www.postman.com/)
+> Postman : [링크](https://www.postman.com/){:target="_blank"}
 
 &nbsp;
 
@@ -208,7 +208,7 @@ export default class UserService {
 
 ![publish documentation 2](/blog/assets/posts/asset-postman-08-publish-confirm.png)
 
-> 사용자 API 콜렉션 : [링크](https://documenter.getpostman.com/view/30577749/2s9YXb9kQJ)
+> 사용자 API 콜렉션 : [링크](https://documenter.getpostman.com/view/30577749/2s9YXb9kQJ){:target="_blank"}
 
 
 &nbsp;

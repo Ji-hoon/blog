@@ -12,7 +12,7 @@ updated: 2023-11-12 12:00
 
 VM(Virtual Machine)이란, 물리적 하드웨어 시스템(오프프레미스 또는 온프레미스에 위치)에 구축되어 자체 CPU, 메모리, 네트워크 인터페이스 및 스토리지를 갖추고 가상 컴퓨터 시스템으로 작동하는 가상 환경입니다.
 
-> 참고 - RedHat 홈페이지 : [링크](https://www.redhat.com/ko/topics/virtualization/what-is-a-virtual-machine)
+> 참고 - RedHat 홈페이지 : [링크](https://www.redhat.com/ko/topics/virtualization/what-is-a-virtual-machine){:target="_blank"}
 
  이번에는 GCP (Google Cloud Platform)에서 제공하는 VM 환경에서 프로젝트를 배포해보았습니다.
 

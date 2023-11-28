@@ -37,7 +37,7 @@ updated: 2023-11-09 01:00
 ```shell
 $ npm install --save multer
 ```
-> Multer : [링크](https://www.npmjs.com/package/multer)
+> Multer : [링크](https://www.npmjs.com/package/multer){:target="_blank"}
 
 &nbsp;
 ## 2. Multipart / form-data 이해하기

@@ -106,7 +106,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoic2FtcGxlX2lkIiwicm9sZSI6IlV
 &nbsp;
 ## 4. 토큰이 올바른지 확인 하는 방법
 
-위에서 생성한 토큰은 [https://jwt.io](https://jwt.io/) 에서 확인해볼 수 있습니다. 이 때 서명 영역의 secret key를 바꿔 보면, Invalid Signature 라고 표시되는 걸 확인할 수 있습니다. (payload에 있는 data를 변경하려면, secret key를 알고 있어야 한다는 의미 이기도 합니다.)
+위에서 생성한 토큰은 [https://jwt.io](https://jwt.io/){:target="_blank"} 에서 확인해볼 수 있습니다. 이 때 서명 영역의 secret key를 바꿔 보면, Invalid Signature 라고 표시되는 걸 확인할 수 있습니다. (payload에 있는 data를 변경하려면, secret key를 알고 있어야 한다는 의미 이기도 합니다.)
 &nbsp;
 
 ![jwt example](/blog/assets/posts/asset-jwt-example.png)

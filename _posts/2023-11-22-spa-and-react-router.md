@@ -12,7 +12,7 @@ updated: 2023-11-22 12:00
 
 React, Vue, Angular 등의 라이브러리들은 주로 **SPA**(Single Page Application, 싱글 페이지 애플리케이션/앱)를 만드는데 사용됩니다. SPA는 물리적으로는 하나의 HTML 파일만을 사용하면서, 화면 내에서 변화하는 정보들을 표시하는 UI만 리렌더링하는 형태의 웹 애플리케이션 제공 방식입니다.
 
-> 참고 - SPA 개념 : [링크](https://ko.wikipedia.org/wiki/%EC%8B%B1%EA%B8%80_%ED%8E%98%EC%9D%B4%EC%A7%80_%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98)
+> 참고 - SPA 개념 : [링크](https://ko.wikipedia.org/wiki/%EC%8B%B1%EA%B8%80_%ED%8E%98%EC%9D%B4%EC%A7%80_%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98){:target="_blank"}
 
 SPA를 만들기 위해서 `VanillaJS`에서 제공되는 기능들이 어떤 것들이 있고, `React`에서는 어떤 도구들을 사용하면 되는지 다뤄보도록 하겠습니다.
 
@@ -38,7 +38,7 @@ SPA를 만들기 위해서 `VanillaJS`에서 제공되는 기능들이 어떤 �
 
 SPA를 살펴보기 전에 먼저 **라우팅 Routing** 과 **라우터 Router** 라는 개념에 대해서 살펴보면, 아래 MDN 페이지에서는 **라우터**의 정의를 다음과 같이 설명하고 있습니다.
 
-> 참고 - SPA에서 라우터 개념 : [링크](https://developer.mozilla.org/ko/docs/Glossary/Routers)
+> 참고 - SPA에서 라우터 개념 : [링크](https://developer.mozilla.org/ko/docs/Glossary/Routers){:target="_blank"}
 
 ```
 애플리케이션 계층에서 Single-page application의 경우, 라우터는 주어진 URL로 표시되는 웹 페이지를 결정하는 라이브러리입니다. 
@@ -46,7 +46,7 @@ SPA를 살펴보기 전에 먼저 **라우팅 Routing** 과 **라우터 Router**
 ```
 반면 **라우팅**의 경우에는 아래와 같이 설명하고 있습니다.
 
-> 참고 - 웹에서의 라우팅 개념 : [링크](https://developer.mozilla.org/ko/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Introduction#%EB%9D%BC%EC%9A%B0%ED%8C%85)
+> 참고 - 웹에서의 라우팅 개념 : [링크](https://developer.mozilla.org/ko/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Introduction#%EB%9D%BC%EC%9A%B0%ED%8C%85){:target="_blank"}
 
 ```
 웹사이트의 링크를 따라가면 브라우저가 서버와 통신하고 표시할 새 콘텐츠를 가져옵니다. 
@@ -157,7 +157,7 @@ React에서는 라우팅을 구현하기위한 라이브러리로 `React Router`
 ```shell
 $ npm install react-router-dom
 ```
-> 참고 - React Router 튜토리얼 : [링크](https://reactrouter.com/en/main/start/tutorial)
+> 참고 - React Router 튜토리얼 : [링크](https://reactrouter.com/en/main/start/tutorial){:target="_blank"}
 
 현재 `React Router`의 최신 버전은 `6.4`이며, 해당 버전의 문법을 사용하여 동일한 기능을 수행하는 SPA 코드를 작성해보겠습니다.
 
@@ -205,7 +205,7 @@ export default App;
 
 이렇게 React Router 라이브러리를 활용하면, 간단하게 SPA를 구축하기 위한 라우팅을 작성할 수 있습니다.
 
-> 참고 - 라이브러리 없이 라우터 구현하기 : [링크](https://fe-developers.kakaoent.com/2022/221124-router-without-library/)
+> 참고 - 라이브러리 없이 라우터 구현하기 : [링크](https://fe-developers.kakaoent.com/2022/221124-router-without-library/){:target="_blank"}
 
 
 &nbsp;
