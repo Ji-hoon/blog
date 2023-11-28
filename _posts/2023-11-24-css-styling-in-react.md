@@ -140,7 +140,30 @@ $ npm install styled-components
 ~project-folder$ npx tailwindcss init -p
 ```
 
+설치 완료 후 생성된 `tailwind.config.js` 파일에 content 배열을 수정하고, `index.css` 파일에 tailwind 구문을 다음과 같이 추가합니다.
 
+> tailwind.config.js
+
+```javascript
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+> index.css
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
 &nbsp;
 
