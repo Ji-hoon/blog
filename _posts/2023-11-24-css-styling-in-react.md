@@ -183,9 +183,10 @@ export default function App() {
     )
 }
 ```
-&nbsp;
 
 ![tailwind result](/blog/assets/posts/asset-react-css-tailwind.png)
+
+> 참고 - Tailwind Component Playground : [링크](https://tailwindui.com/components/preview){:target="_blank"}
 
 &nbsp;
 
