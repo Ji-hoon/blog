@@ -115,7 +115,7 @@ export default function Main() {
     ...
     return (
         <main className={theme}
-            style={{backgroundColor: "var(--color-background)", transition:"var(--transition-ease-out)"}}>
+            style={ {backgroundColor: "var(--color-background)", transition:"var(--transition-ease-out)"} }>
             <Header theme={theme} toggleTheme={toggleTheme} />
             ...
             <TodoItem theme={theme} />
@@ -150,6 +150,7 @@ export default function Header({
 
 위 코드에서 확인할 수 있듯 `theme props`가 `theme-dark`일 때 `FiMoon` 아이콘을 렌더링하고, `theme-light` 라면 `FiSun` 아이콘을 렌더링하게 됩니다. 또한 클릭 시 props로 전달받은 `toggleTheme` 콜백함수를 실행하여 theme state를 변경할 수 있도록 구현할 수 있습니다.
 
+&nbsp;
 
 ![color theme result](/blog/assets/posts/asset-theme-switcher.gif)
 
