@@ -115,7 +115,7 @@ export default function Main() {
     ...
     return (
         <main className={theme}
-            style={ {backgroundColor: "var(--color-background)", transition:"var(--transition-ease-out)"} }>
+            style={ {color: "var(--color-text)", backgroundColor: "var(--color-background)", transition:"var(--transition-ease-out)"} }>
             <Header theme={theme} toggleTheme={toggleTheme} />
             ...
             <TodoItem theme={theme} />
