@@ -116,7 +116,7 @@ import { initialState, reducer } from './App.js';
 
 export default function Counter() {
     // useReducer 메소드를 사용해서 state와 dispatch를 정의
-    const [state, dispatch] = useReducer(reducer, initialState); // initialState : { number: 0 }
+    const [state, dispatch] = useReducer(reducer, initialState);
 
     // 상태 변경이 필요한 경우 dispatch 메소드를 호출
     function handleIncreae() {
@@ -187,7 +187,109 @@ export default function Counter() {
 &nbsp;
 ## 4. Redux toolkit을 활용한 전역 상태 관리
 
-마지막으로 Redux와 Redux toolkit을 활용한 전역 상태 관리 방법에 대해서 살펴보겠습니다.
+마지막으로 Redux와 Redux toolkit을 활용한 전역 상태 관리 방법에 대해서 살펴보겠습니다. Reduc toolkit은 Redux에서 공식적으로 추천하는 helper 라이브러리입니다. 다음 명령어를 통해 설치합니다.
+
+```shell
+$ npm i -S @redux/toolkit react-redux
+```
+
+
+> createSlice
+
+```javascript
+/*
+ * counterSlice.js
+ */
+import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+    number: 0
+}
+
+const counterSlice = createSlice({
+    name: 'counter',
+    initialState,
+    reducers: {
+        increase: state => {
+            state.number += 1;
+        },
+        decrease: state => {
+            state.number -= 1;
+        }
+    }
+});
+
+export const { increase, decrease } = counterSlice.actions;
+export default counterSlice.reducer;
+```
+Redux의 reducer를 확장한 개념으로, createSlice() 를 작성하면 slice 인스턴스를 반환해주며, 해당 인스턴스로 action 과 reducer 추출이 가능하게 됩니다.
+
+> configureStore & Provider
+
+```javascript
+/*
+ * App.js
+ */
+import React from 'react';
+import { Provider } from 'react-redux';
+import Counter from './Counter.js';
+import { configureStore } from '@reduxjs/toolkit';
+import counterReducer from './counterSlice';
+
+const store = configureStore({
+    reducer: counterReducer
+});
+
+function App() {
+    return (
+        <Provider store={store}>
+            <div className="App">
+                <Counter />
+            </div>
+        </Provider>
+    )
+}
+
+export default App;
+```
+
+`configureStore()` 를 사용하여 스토어 생성하고, **react-redux** 패키지에서 제공해주는 `Provider`를 사용하여 생성한 `store`를 바인딩합니다.
+
+> dispatch & selector
+
+```javascript
+/*
+ * Counter.js
+ */
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { increase, decrease } from './counterSlice';
+
+function Counter() {
+    const number = useSelector(state => state.counter.number);
+    const dispatch = useDispatch();
+
+    function handleIncrease() {
+        dispatch(increase());
+    }
+
+    function handleDecrease() {
+        dispatch(decrease());
+    }
+
+    return(
+        <div>
+            <p>{number}</p>
+            <button onClick={handleIncrease}>+</button>
+            &nbsp;
+            <button onClick={handleDecrease}>-</button>
+        </div>
+    )
+}
+
+export default Counter;
+```
+마지막으로 `store`에 정의된 상태에 접근하기 위해 `useSelector` 메소드를 사용하여 `state`에 접근합니다. 위 예시에서는 `state`의 `counterSlice` 에 정의된 `number` 값을 `number` 변수에 할당하여 사용하고 있습니다. (slice 생성 시 지정한 **name** 값을 사용)
 
 
 &nbsp;
