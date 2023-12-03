@@ -23,7 +23,7 @@ React에서 상태를 관리하는 `useState hook` 같은 경우, 최상위 컴�
 
 [1. 전역 상태 관리가 필요한 이유](#1-전역-상태-관리가-필요한-이유)
 
-[2. Flux Pattern과 useReducer](#2-flux-pattern과-usereducer)
+[2. Flux Pattern과 useReducer hook](#2-flux-pattern과-usereducer-hook)
 
 [3. Redux](#3-redux)
 
@@ -53,9 +53,9 @@ React에서는 기본적으로 이러한 상태 관리를 위한 `useReducer hoo
 > Flux pattern
 
 **Flux pattern**이란 `Dispatcher`, `Stores`, `Views`(React 컴포넌트) 3가지 핵심적인 부분으로 이루어진 소프트웨어 디자인 패턴 중 하나입니다. MVC 패턴에서 하나의 유저 인터렉션 발생 시 그 인터렉션으로 발생한 업데이트가 다른 연쇄 업데이트를 만들어낼 수 있습니다. 따라서 업데이트의 근원을 추적하기 힘든 반면 Flux 패턴은 연쇄 업데이트가 아닌 **단방향 업데이트**만을 만들어낼 수 있습니다.
+&nbsp;
 
-![flux architecture](https://haruair.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png){: .align-center}
-*Flux architecture*
+![flux architecture](https://haruair.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png)*Flux 패턴의 데이터 흐름*{: .align-center}
 
 &nbsp;
 
