@@ -76,23 +76,23 @@ import Counter from './Counter.js';
 
 // 초기 상태 값을 객체 형태로 선언
 export const initialState = {
-  number: 0,
+    number: 0,
 };
 
 // state와 action 을 인자로 받는 reducer 함수를 작성
 export function reducer(state, action) {
 	switch (action.type) {
 		case 'increase': {
-			return {
-			  ...state,
-              number: state.number + 1,
-      }
+            return {
+                ...state,
+                number: state.number + 1,
+            }
 		}
 		case 'decrease': {
 			return {
-			  ...state,
-              number: state.number - 1,
-      }
+                ...state,
+                number: state.number - 1,
+            }
 		}
 		default: {
 			return state;
@@ -158,25 +158,31 @@ export default function Counter() {
 2. 불변성 - 상태(state)는 오로지 읽을 수만 있습니다(read-only). dispatch action을 통해 새로운 상태를 생성합니다.
 3. 순수 함수 - 상태 변경은 어떠한 사이드 이펙트도 만들지 않아야 합니다.
 
-> action
+> **action**
 
 **action**은 상태의 변경을 나타내는 개념 (하나의 동작만을 수행)으로 `type`과 `payload`를 포함하는 JS 객체 입니다.
 
-> action creator
+> **action creator**
 
 **action**이 1개의 액션만을 생성한다면, **action creator**는 여러개의 액션을 생성하는 함수 입니다. 직접 action을 생성하는 것 보다 재사용성이 높아집니다.
 
-> store
+> **store**
 
 **store** 는 앱 전체의 상태를 보관하는 곳입니다. **action**에 따라서 **reducer**에서는 새로운 상태를 반환하며, 다시 **store**에 그 결과 값을 저장합니다.
 
-> reducer
+> **reducer**
 
 **action** 인자로 받아서 새로운 **state** 객체를 만들어 반환합니다. 상태 변경 시, 사이드 이펙트가 발생하지 않도록 함수를 설계해야 합니다.
 
-> dispatch
+> **dispatch**
 
 생성된 **action** 을 **reducer** 로 보내는 함수입니다. 이 때 필요한 미들웨어가 있다면 **reducer**에 도달하기 전에 사용합니다.
+
+> **selector**
+
+**selector**는 특정 **state** 조각을 **store**로부터 가져오는 함수입니다. **store**의 state는 raw data를 저장하고 계산된 값 등을 **selector**로 가져오는 등의 패턴을 구사할 때 유용합니다.
+
+
 
 &nbsp;
 ## 4. Redux toolkit을 활용한 전역 상태 관리
