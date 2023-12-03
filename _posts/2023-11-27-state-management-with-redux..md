@@ -56,7 +56,7 @@ React에서는 기본적으로 이러한 상태 관리를 위한 `useReducer hoo
 
 &nbsp;
 
-![flux architecture](https://haruair.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png)*Flux 패턴의 데이터 흐름 ([출처](https://haruair.github.io/flux/docs/overview.html)*{: .caption}
+![flux architecture](https://haruair.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png)*Flux 패턴의 데이터 흐름 ([출처](https://haruair.github.io/flux/docs/overview.html)){:target="_blank"}*{: .caption}
 
 &nbsp;
 
