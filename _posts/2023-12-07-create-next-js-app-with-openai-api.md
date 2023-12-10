@@ -10,10 +10,9 @@ updated: 2023-12-07 12:00
 
 &nbsp;
 
-이전 글에서 GCP VM 환경에서 React 프로젝트를 배포하는 작업을 진행 했었습니다. 이번에는 [OpenAI API](https://platform.openai.com/){:target="_blank"} 를 활용한 [Next.js](https://nextjs.org/){:target="_blank"} 프로젝트를 만들어보고 [Vercel](https://vercel.com/){:target="_blank"} 에 배포하는 작업을 진행해보겠습니다. 
+이전 글에서 **GCP VM 환경에서 React 프로젝트를 배포**하는 작업을 진행 했었습니다. 이번에는 [OpenAI API](https://platform.openai.com/){:target="_blank"} 를 활용한 [Next.js](https://nextjs.org/){:target="_blank"} 프로젝트를 만들어보고 [Vercel](https://vercel.com/){:target="_blank"} 에 배포하는 작업을 진행해보겠습니다. 
 
-> 참고 - VM(가상머신) 환경에서 프로젝트 배포하기
- : [링크](https://ji-hoon.github.io/blog/project-release-on-vm){:target="_blank"}
+> 참고 - VM(가상머신) 환경에서 프로젝트 배포하기 : [링크](https://ji-hoon.github.io/blog/project-release-on-vm){:target="_blank"}
 
 
 
@@ -236,7 +235,7 @@ install이 완료되면 선택한 리포지토리가 보여집니다. 아래 화
 
 &nbsp;
 
-![vercel app preview](/blog/assets/posts/asset-vercel-app-preview.gif)
+![vercel app preview](/blog/assets/posts/asset-vercel-app-preview-v2.gif)
 
 &nbsp;
 
