@@ -29,9 +29,9 @@ updated: 2023-12-14 12:00
 
 [4. API 통신 구조 설계하기](#4-api-통신-구조-설계하기)
 
-[5. 토큰 발급 및 쿠키 설정하기](#5-토큰-발급-및-쿠키-설정하기)
+[5. Oauth API 구현하기](#5-oauth-api-구현하기)
 
-[6. 로그아웃과 회원탈퇴 구현하기](#6-로그아웃과-회원탈퇴-구현하기)
+[6. 로그아웃과 회원탈퇴 API 구현하기](#6-로그아웃과-회원탈퇴-api-구현하기)
 
 
 
@@ -90,7 +90,7 @@ updated: 2023-12-14 12:00
 
 &nbsp;
 
-![kakao login process](https://developers.kakao.com/docs/latest/ko/assets/style/images/kakaologin/kakaologin_sequence.png)*카카오 로그인 과정([출처](https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api){:target="_blank"})*{: .caption}
+![kakao login process](https://developers.kakao.com/docs/latest/ko/assets/style/images/kakaologin/kakaologin_sequence.png)*카카오 로그인 과정 ([출처](https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api){:target="_blank"})*{: .caption}
 
 &nbsp;
 
@@ -103,7 +103,7 @@ updated: 2023-12-14 12:00
    
 &nbsp;
 
-위 통신 구조를 잘 이해하기 위해 플로우차트로 시각화해보면 아래와 같습니다. 이제 아래 이미지를 바탕으로 기능을 구현해보겠습니다.
+위 통신 구조를 잘 이해하기 위해 플로우차트로 시각화해보았습니다. (좌측이 클라이언트, 중간부분이 카카오, 우측이 서버 영역입니다.) 이제 아래 이미지를 바탕으로 기능을 구현해보겠습니다.
 
 &nbsp;
 
@@ -111,9 +111,9 @@ updated: 2023-12-14 12:00
 
 &nbsp;
 
-## 5. 토큰 발급 및 쿠키 설정하기
+## 5. Oauth API 구현하기
 
-서버 사이드에서 카카오 로그인에 필요한 API는 **1개**로 작성하고, API 내부에서 카카오 측으로 API 요청을 보내고 정보를 받아 활용하는 형태로 구현합니다. 아래 코드는 `router`에 연결된 `handleKakaoOAuthProcess` 함수 코드 입니다. (서비스 로직은 별도 파일에 작성해서 사용했습니다.)
+서버 사이드에서 카카오 로그인에 필요한 **Oauth API**는 **1개**로 작성하고, API 내부에서 카카오 측으로 API 요청을 보내고 정보를 받아 활용하는 형태로 구현합니다. 아래 코드는 `/api/oauth`의 `router`에 연결된 `handleKakaoOAuthProcess` 함수 코드 입니다. (서비스 로직은 별도 파일에 작성해서 사용했습니다.)
 
 ```typescript
 async function handleKakaoOAuthProcess (req: express.Request, res: Response) {
@@ -136,7 +136,7 @@ async function handleKakaoOAuthProcess (req: express.Request, res: Response) {
   // 카카오 계정 정보와 action을 인자로 전달하여 회원가입 또는 로그인 완료된 서비스 계정 정보를 result에 할당합니다.
   const result = await authService.handleAuthUser(userInfo, action);
   
-  // 서비스 계정의 id와, 랜덤하게 생성된 nickname으로 JWT를 생성하고 token에 할당합니다.
+  // 서비스 계정의 id와, 랜덤하게 생성된 nickname 그리고 exp(만료일 정보)를 payload에 담아 JWT를 생성하고 token에 할당합니다.
   const token = authService.generateJWT(
     result.user._id,
     result.user.nickname,
@@ -154,10 +154,58 @@ async function handleKakaoOAuthProcess (req: express.Request, res: Response) {
 
 &nbsp;
 
-## 6. 로그아웃과 회원탈퇴 구현하기
+## 6. 로그아웃과 회원탈퇴 api 구현하기
 
-로그인과 토큰 발급을 구현했으니, 이제 로그아웃과 탈퇴 시 처리를 구현해보겠습니다.
+인증 성공 시 로그인과 토큰 발급 기능을 구현했으니, 이제 로그아웃과 탈퇴 시 처리를 구현해보겠습니다. 각각 `/api/auth/logout`과 `/api/auth/withdraw`로 API를 구현합니다. 
 
+> 로그아웃
+
+```javascript
+function handleLogout (req: express.Request, res: Response) {
+  res.clearCookie("service_token", { path: "/", maxAge: 0 });
+  res.status(204).send();
+}
+```
+&nbsp;
+
+먼저 로그아웃의 경우에는 http요청에 담긴 쿠키를 초기화하여 204 상태코드와 함께 반환합니다. 이렇게 하면 클라이언트 측 쿠키를 삭제할 수 있습니다.
+
+> 회원 탈퇴
+
+```javascript
+function handleLogout (req: express.Request, res: Response) {
+  const userToken = req.cookies.service_token;
+  const userId = authService.extractDataFromToken(userToken, "user_id");
+  const result = await userService.withdrawUser(userId);
+  if (!result) {
+    throw new CustomError({
+      status: 400,
+      message: "회원 탈퇴에 실패했습니다.",
+    });
+  }
+  res.clearCookie("service_token", { path: "/", maxAge: 0 });
+  res.status(200).json({
+    message: "회원 탈퇴에 성공했습니다.",
+    user: result,
+  });
+}
+```
+&nbsp;
+
+회원 탈퇴의 경우에는 먼저 `request cookie`에 담긴 토큰에서 `user_id`를 가져와서, 사용자 모델의 `deletedAt` 필드에 `date` 값을 할당한 결과를 `result`에 할당합니다. 이 때 `findAndUpdate` 메소드를 사용하는데, `{ new : true }` 옵션을 사용할 경우 업데이트 결과를 반환합니다.
+
+```javascript
+async withdrawUser(userId: string) {
+  return await UserModel.findOneAndUpdate(
+    { _id: userId },
+    { deletedAt: new Date() }, // 2023-12-17T06:06:10.987+00:00
+    { new: true },
+  );
+},
+```
+&nbsp;
+
+위 서비스 로직을 통해 필드가 업데이트된 사용자가 반환된 경우, 로그아웃과 마찬가지로 쿠키의 토큰을 삭제 후 200 상태코드와 함께 응답을 반환하면 회원 탈퇴 로직 구현이 완료되었습니다.
 
 
 &nbsp;
