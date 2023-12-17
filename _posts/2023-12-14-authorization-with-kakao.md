@@ -10,7 +10,7 @@ updated: 2023-12-14 12:00
 
 &nbsp;
 
-이전 글에서 **JWT를 이용한 토큰 발급 및 검증 로직을 구현**하는 작업을 진행 했었습니다. 이번에는 [카카오 소셜 로그인 API](https://platform.openai.com/){:target="_blank"}를 활용한 인증 서비스 로직을 구현해보도록 하겠습니다.
+이전 글에서 **JWT를 이용한 토큰 발급 및 검증 로직을 구현**하는 작업을 진행 했었습니다. 이번에는 [카카오 소셜 로그인 API](https://developers.kakao.com/docs/latest/ko/kakaologin/common){:target="_blank"}를 활용한 인증 서비스 로직을 구현해보도록 하겠습니다.
 
 > 참고 - Node.js에서 JWT를 이용한 토큰 발급 및 검증 로직 구현하기 : [링크](https://ji-hoon.github.io/blog/JWT-and-authorization){:target="_blank"}
 
@@ -31,7 +31,7 @@ updated: 2023-12-14 12:00
 
 [5. 토큰 발급 및 쿠키 설정하기](#5-토큰-발급-및-쿠키-설정하기)
 
-[5. 클라이언트에서의 처리](#5-클라이언트에서의-처리)
+[6. 로그아웃과 회원탈퇴 구현하기](#6-로그아웃과-회원탈퇴-구현하기)
 
 
 
@@ -79,7 +79,7 @@ updated: 2023-12-14 12:00
 
 그 다음은 `앱 설정 > 플랫폼` 화면 하단의 Web 영역에서 `사이트 도메인` 경로를 설정합니다. 여기에는 **클라이언트 프로젝트의 URL**을 입력합니다. (카카오 로그인 인가 코드를 요청할 URL)
 
-마지막으로 사이트 도메인 경로 하단의 [텍스트 링크](https://developers.kakao.com/console/app/1009225/product/login){:target="_blank"}를 클릭해서 **카카오 로그인**을 활성화 시키고, **동의 항목**을 설정해줍니다. 마지막으로 **Redirect URI**를 설정해줍니다. 이 글에서는 `http://{serverurl}/api/auth/oauth` 로 API를 개발할 것이기 때문에 동일한 URL을 입력해줍니다.
+마지막으로 사이트 도메인 경로 하단의 **텍스트 링크**(`https://developers.kakao.com/console/app/{app-id}/product/login`)를 클릭해서 **카카오 로그인**을 활성화 시키고, **동의 항목**을 설정해줍니다. 마지막으로 **Redirect URI**를 설정해줍니다. 이 글에서는 `http://{serverurl}/api/auth/oauth` 로 API를 개발할 것이기 때문에 동일한 URL을 입력해줍니다.
 
 
 &nbsp;
@@ -107,7 +107,7 @@ updated: 2023-12-14 12:00
 
 &nbsp;
 
-![kakao oauth process](/blog/assets/posts/Elice_2ndProject_UI_Specification_SocialLogin_Flowchart_compressed.png)
+![kakao oauth process](/blog/assets/posts/Elice_2ndProject_UI_Specification_SocialLogin_Flowchart_compressed.png)*카카오 로그인 플로우 차트 ([크게 보기](https://ji-hoon.github.io/blog/assets/posts/Elice_2ndProject_UI_Specification_SocialLogin_Flowchart_compressed.png){:target="_blank"})*{: .caption}
 
 &nbsp;
 
@@ -151,6 +151,13 @@ async function handleKakaoOAuthProcess (req: express.Request, res: Response) {
   );
 }
 ```
+
+&nbsp;
+
+## 6. 로그아웃과 회원탈퇴 구현하기
+
+로그인과 토큰 발급을 구현했으니, 이제 로그아웃과 탈퇴 시 처리를 구현해보겠습니다.
+
 
 
 &nbsp;
