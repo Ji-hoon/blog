@@ -212,7 +212,7 @@ async withdrawUser(userId: string) {
 이어지는 글에서는 클라이언트 사이드에서 어떻게 구현해야 하는지 다뤄보도록 하겠습니다. 🥰
 
 
-> 다음 글 - 카카오 소셜 로그인을 활용한 인증 서비스 구현하기 (2) : [링크](https://ji-hoon.github.io/blog/authorization-with-kakao-2){:target="_blank"}
+> 다음 글 - 카카오 소셜 로그인을 활용한 인증 서비스 구현하기 (2) : [링크](https://ji-hoon.github.io/blog/authorization-with-kakao-2)
 
 
 &nbsp;
