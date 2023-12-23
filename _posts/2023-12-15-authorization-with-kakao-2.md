@@ -12,7 +12,7 @@ updated: 2023-12-17 12:00
 
 이전 글에서 **카카오 소셜 로그인을 활용한 인증 서비스 구현**하는 작업 중 서버 사이드 부분을 진행 했었습니다. 이번에는 클라이언트 사이드에서 필요한 로직을 구현해보도록 하겠습니다.
 
-> 참고 - 카카오 소셜 로그인을 활용한 인증 서비스 구현하기 (1) : [링크](https://ji-hoon.github.io/blog/JWT-and-authorization){:target="_blank"}
+> 참고 - 카카오 소셜 로그인을 활용한 인증 서비스 구현하기 (1) : [링크](https://ji-hoon.github.io/blog/authorization-with-kakao){:target="_blank"}
 
 
 
