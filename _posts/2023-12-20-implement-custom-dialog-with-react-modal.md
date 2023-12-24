@@ -22,7 +22,7 @@ React 애플리케이션 개발 시, 반복적으로 사용되는 UI 패턴이�
 
 ## 목차
 
-[1. UI 패턴의 분류 방식](#1-UI-패턴의-분류-방식)
+[1. UI 패턴의 분류 방식](#1-ui-패턴의-분류-방식)
 
 [2. useCustomDialog 훅 작성하기](#2-usecustomdialog-훅-작성하기)
 
@@ -50,7 +50,7 @@ React 애플리케이션 개발 시, 반복적으로 사용되는 UI 패턴이�
 &nbsp;
 
 ```shell
-npm i -s styled-react-modal
+$ npm i -s styled-react-modal
 ```
 &nbsp;
 
