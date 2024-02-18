@@ -256,23 +256,6 @@ export default function Button_Icontype({
 이제 `showDropdown` 상태를 변경하는 트리거 컴포넌트의 위치를 계산하는 함수를 추가해보겠습니다.
 
 ```typescript
-export function calculateElementPositionAndSize({
-  target,
-}: {
-  target: Element;
-}) {
-  const targetRect = target?.getBoundingClientRect();
-  const targetPosition = {
-    x: targetRect.left,
-    y: targetRect.top,
-    width: targetRect.width,
-    height: targetRect.height,
-  };
-
-  return targetPosition;
-}
-```
-```typescript
 import Dropdown from "../dropdown/Dropdown";
 import Dropdown_Member from "../dropdown/Dropdown.Member";
 import { useRecoilState } from "recoil";
@@ -348,6 +331,8 @@ export default function Dropdown_Member({ data }: DropdownProps) {
 ## 5. 드롭다운 고유 키를 사용한 분기 처리
 
 이제 드롭다운의 위치 좌표를 트리거 엘리먼트의 기준 좌표에 따라 가변적으로 배치할 수 있습니다. 다만 아직도 해결해야 하는 문제는, `showDropdown` 이라는 1개의 상태값만 사용하고 있기 때문에 `IcontypeButton` 컴포넌트를 사용하는 상위 컴포넌트가 여러개 존재한다고 가정한다면, 1개의 클릭 이벤트만 발생하더라도 해당 컴포넌트를 사용하고 있는 모든 컴포넌트에서 `Dropdown_Member` 컴포넌트를 호출하게 됩니다.
+
+&nbsp;
 
 ![duplicated dropdown](/blog/assets/posts/asset-dropdown-duplicated.png)
 
