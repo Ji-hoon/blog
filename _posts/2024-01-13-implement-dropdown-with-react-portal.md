@@ -35,7 +35,9 @@ updated: 2024-01-13 12:00
 
 ## 1. React portal을 왜 써야할까?
 
-![dropdown UI pattern](/assets/posts/asset-dropdown-pattern.png)*다양한 Dropdown 패턴 feat. Notion, Rallit, Gmail*{: .caption}
+![dropdown UI pattern](/blog/assets/posts/asset-dropdown-pattern.png)*다양한 Dropdown 패턴 feat. Notion, Rallit, Gmail*{: .caption}
+
+&nbsp;
 
 먼저 웹 애플리케이션에서 드롭다운 패턴이라함은, UI 관점에서 바라보면 **평소에는 보여지지 않지만 특정 액션에 대한 선택지를 제공하거나 부가적인 정보나 기능을 제공하려고 할 때** 사용하게 됩니다. 예컨데 **옵션 메뉴 버튼을 클릭했을 때 선택 가능한 옵션 목록을 제공하는 UI** 나 **더보기 같은 버튼을 클릭했을 때 리소스를 추가하거나 변경하는 기능들을 제공하는 UI패턴**을 의미합니다.
 
@@ -54,19 +56,155 @@ React 16 버전에 추가된 `react portal` 을 사용하면 위 제약사항을
 
 > 참고 - React Portals 가이드 : [링크](https://reactjs-kr.firebaseapp.com/docs/portals.html) / createPortal 사용 가이드 : [링크](https://react.dev/reference/react-dom/createPortal)
 
-가이드에서는 portal에 대한 설명을 다음과 같이 안내합니다. 
+&nbsp;
+
+## 2. Portal로 사용할 dom 설정하기
+
+가이드에서는 portal에 대한 설명을 다음과 같이 안내하고 있습니다. 
 
 ```
 createPortal lets you render some children into a different part of the DOM.
 ```
 
-React 프로젝트 생성 시 제공되는 `index.html`에는 `root`라는 `id`를 가진 `div` 하위에 컴포넌트들을 그리게 되는데요. portal로 사용할 별도의 element를 만들고, 해당 위치에 렌더링할 컴포넌트를 보내는 기능을 제공합니다.
+React 프로젝트 생성 시 제공되는 `index.html`에 `root`라는 `id`를 가진 `div` 하위에 컴포넌트들을 그리게 되는데요. portal로 사용할 별도의 element를 만들고, `react-dom`에서 `createPoral`을 불러와서 사용하면, 해당 위치에 렌더링할 컴포넌트를 보낼 수 있습니다. 아래는 `createPortal`로 `modal`을 핸들링하는 예제 코드입니다.
+
+```javascript
+import { useState } from 'react';
+import { createPortal } from 'react-dom';
+import ModalContent from './ModalContent.js';
+
+export default function PortalExample() {
+  const [showModal, setShowModal] = useState(false);
+  return (
+    <>
+      <button onClick={() => setShowModal(true)}>
+        Show modal using a portal
+      </button>
+      {showModal && createPortal(
+        <ModalContent onClose={() => setShowModal(false)} />,
+        document.body
+      )}
+    </>
+  );
+}
+```
+
+위 예제에서는 button element 클릭 시 showModal이라는 상태를 true로 바꾸게 되고, 이 때 showModal이 true라면 createPortal로 ModalContent라는 컴포넌트를 document.body 하위에 렌더링합니다.
 
 &nbsp;
 
-## 2. Portal로 사용할 dom 설정하기
+기본적인 개념에 대해 알아보았으니 실제 앱에 적용해보도록 하겠습니다. 먼저 다른 portal들과 순서가 명확히 구분될 수 있도록 index.html에는 dropdown이라는 id를 가진 div를 root 다음 순서에 추가합니다.
 
-2번 주제
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/Frame.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가계부를 부탁해</title>
+    <meta
+      name="description"
+      property="og:description"
+      content="카드 지출내역, 영수증을 직접 등록하여 지출 내역을 관리해보세요."
+    />
+    <meta property="og:url" content="http://35.231.16.39" />
+    <meta property="og:site_name" content="가계부를 부탁해" />
+    <meta property="og:title" content="가계부를 부탁해" />
+    <meta property="og:image" content="https://github.com/Ji-hoon/Home-accountant/raw/master/client/public/img-meta-image-1200.png" />
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="dropdown"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+```
+
+그리고 `createPortal` 메서드를 `Dropdown` 이라는 컴포넌트안에 정의하여 여러 컴포넌트에서 재사용 가능하도록 만들어줍니다.
+
+```typescript
+import styled from "styled-components";
+import { useRecoilState } from "recoil";
+import { dropdownOpenAtom } from "../../atoms/globalAtoms";
+import { createPortal } from "react-dom";
+import { PortalProps } from "../../global/customType";
+import { COLORS, SIZES } from "../../global/constants";
+
+export default function Dropdown({ children }: { children: React.ReactNode }) {
+  const [showDropdown, setShowDropdown] = useRecoilState(dropdownOpenAtom);
+
+  const DropdownPortal = ({ children }: PortalProps) => {
+    return createPortal(
+      children,
+      document.getElementById("dropdown") as HTMLElement,
+    );
+  };
+
+  return (
+    <DropdownPortal>
+      {showDropdown && (
+        <DropdownContainer>
+          <DropdownBackdrop
+            className="dropdown-backdrop"
+            onClick={() => setShowDropdown("")}
+          />
+          {children}
+        </DropdownContainer>
+      )}
+    </DropdownPortal>
+  );
+}
+
+const DropdownContainer = styled.div`
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 111;
+
+  & > *:not(.dropdown-backdrop) {
+    z-index: 113;
+  }
+`;
+
+const DropdownBackdrop = styled(DropdownContainer)`
+  z-index: 112;
+  position: fixed;
+`;
+
+export const DropdownUIContainerStyle = styled.div<{
+  data: {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  };
+}>`
+  position: absolute;
+  left: ${(props) => props.data.x + props.data.width - 200}px;
+  top: ${(props) => props.data.y + props.data.height}px;
+  height: auto;
+  width: 200px;
+  max-height: calc(100vh - 100px);
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  margin-top: 6px;
+  background-color: #fff;
+  border-radius: 5px;
+  background-color: ${COLORS.BASIC_WHITE};
+  box-shadow: 0 2px 7px 0 ${COLORS.GRAY_07_OVERAY};
+  max-width: ${SIZES.MAX_WIDTH * 0.65}px;
+`;
+```
+
+위 코드를 보면 `Dropdown` 컴포넌트에서 `showDropdown`이라는 recoil state가 빈 문자열이 아닌 경우 `DropdownContainer`를 렌더링 하게 되고, `DropdownContainer` 하위에는 `backdrop` 엘리먼트와 props로 전달된 `children`을 렌더링하게 됩니다. 이 때 `backdrop` 요소를 클릭 하게되면 `showDropdown`상태를 `빈 문자열`로 할당하여 `DropdownContainer`를 숨김 처리할 수 있습니다.
+
 
 &nbsp;
 
