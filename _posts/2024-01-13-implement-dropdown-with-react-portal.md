@@ -19,9 +19,9 @@ updated: 2024-01-13 12:00
 
 [1. React portal을 왜 써야할까?](#1-react-portal을-왜-써야할까)
 
-[2. Portal로 사용할 dom 설정하기](#2-portal로-사용할-dom-설정하기)
+[2. Portal로 사용할 DOM Element 설정하기](#2-portal로-사용할-dom-element-설정하기)
 
-[3. Portal 바깥에 dropdown trigger 설정하기](#3-portal-바깥에-dropdown-trigger-설정하기)
+[3. Portal 바깥에서 dropdown trigger 설정하기](#3-portal-바깥에서-dropdown-trigger-설정하기)
 
 [4. 컴포넌트의 표시 위치 계산하기](#4-컴포넌트의-표시-위치-계산하기)
 
@@ -35,7 +35,7 @@ updated: 2024-01-13 12:00
 
 ## 1. React portal을 왜 써야할까?
 
-![dropdown UI pattern](/blog/assets/posts/asset-dropdown-pattern.png)*다양한 Dropdown 패턴 feat. Notion, Rallit, Gmail*{: .caption}
+![dropdown UI pattern](/blog/assets/posts/asset-dropdown-pattern.png)*다양한 Dropdown 패턴 -- feat. Notion, Rallit, Gmail*{: .caption}
 
 &nbsp;
 
@@ -47,18 +47,19 @@ updated: 2024-01-13 12:00
 
 > 참고 - Dropdown pattern : [링크](https://semantic-ui.com/modules/dropdown.html)
 
-이러한 특징 때문에 드롭다운 컴포넌트를 구현한다면 아래 2가지 제약사항을 고려해야 합니다.
+이러한 특징 때문에 드롭다운 컴포넌트를 구현한다면 아래 3가지 제약사항을 고려해야 합니다.
 
 1. UI를 숨기는 이벤트 핸들링을 위해 드롭다운의 z-index는 기본 UI (트리거 요소 포함) 보다 상위에 위치해야 합니다.
 2. 드롭다운 UI를 렌더링 할 때 불필요한 리렌더링이 일어나지 않도록 관련 없는 컴포넌트에 영향을 주지 않아야 합니다.
+3. 렌더링된 드롭다운은 트리거 컴포넌트 근처에 위치해야 합니다.
 
-React 16 버전에 추가된 `react portal` 을 사용하면 위 제약사항을 만족시키면서 드롭다운 UI를 구현할 수 있습니다.
+React 16 버전에 추가된 `react portal` 을 사용하면 위 제약사항을 만족시키면서 드롭다운 UI를 구현할 수 있습니다. (3번은 별도 유틸 함수로 구현)
 
 > 참고 - React Portals 가이드 : [링크](https://reactjs-kr.firebaseapp.com/docs/portals.html) / createPortal 사용 가이드 : [링크](https://react.dev/reference/react-dom/createPortal)
 
 &nbsp;
 
-## 2. Portal로 사용할 dom 설정하기
+## 2. Portal로 사용할 Dom Element 설정하기
 
 가이드에서는 portal에 대한 설명을 다음과 같이 안내하고 있습니다. 
 
@@ -89,11 +90,11 @@ export default function PortalExample() {
 }
 ```
 
-위 예제에서는 button element 클릭 시 showModal이라는 상태를 true로 바꾸게 되고, 이 때 showModal이 true라면 createPortal로 ModalContent라는 컴포넌트를 document.body 하위에 렌더링합니다.
+위 예제에서는 `button element` 클릭 시 `showModal`이라는 상태를 `true`로 바꾸게 되고, 이 때 `showModal`이 `true`라면 `createPortal`로 `ModalContent`라는 컴포넌트를 `document.body` 하위에 렌더링합니다.
 
 &nbsp;
 
-기본적인 개념에 대해 알아보았으니 실제 앱에 적용해보도록 하겠습니다. 먼저 다른 portal들과 순서가 명확히 구분될 수 있도록 index.html에는 dropdown이라는 id를 가진 div를 root 다음 순서에 추가합니다.
+기본적인 개념에 대해 알아보았으니 실제 앱에 적용해보도록 하겠습니다. 먼저 다른 portal들과 순서가 명확히 구분될 수 있도록 `index.html`에는 `dropdown`이라는 `id`를 가진 `div`를 `root` 다음 순서에 추가합니다.
 
 ```html
 <!doctype html>
@@ -122,7 +123,7 @@ export default function PortalExample() {
 </html>
 ```
 
-그리고 `createPortal` 메서드를 `Dropdown` 이라는 컴포넌트안에 정의하여 여러 컴포넌트에서 재사용 가능하도록 만들어줍니다.
+그리고 `createPortal` 메서드를 `Dropdown` 이라는 컴포넌트안에 정의하여 여러 컴포넌트에서 재사용 가능하도록 만들어줍니다. 이렇게 생성된 컴포넌트는 트리거 컴포넌트에서 import해서 사용할 수 있습니다.
 
 ```typescript
 import styled from "styled-components";
@@ -203,23 +204,283 @@ export const DropdownUIContainerStyle = styled.div<{
 `;
 ```
 
-위 코드를 보면 `Dropdown` 컴포넌트에서 `showDropdown`이라는 recoil state가 빈 문자열이 아닌 경우 `DropdownContainer`를 렌더링 하게 되고, `DropdownContainer` 하위에는 `backdrop` 엘리먼트와 props로 전달된 `children`을 렌더링하게 됩니다. 이 때 `backdrop` 요소를 클릭 하게되면 `showDropdown`상태를 `빈 문자열`로 할당하여 `DropdownContainer`를 숨김 처리할 수 있습니다.
+위 코드를 보면 `Dropdown` 컴포넌트에서 `showDropdown`이라는 recoil state가 빈 문자열이 아닌 경우 `DropdownContainer`를 렌더링 하게 되고, `DropdownContainer` 하위에는 `backdrop` 엘리먼트와 props로 전달된 `children`을 렌더링하게 됩니다. 이 때 화면 전체를 덮는 `backdrop` 요소를 클릭 하게되면 `showDropdown`상태를 `빈 문자열`로 할당하여 `DropdownContainer`를 숨김 처리할 수 있습니다.
 
 
 &nbsp;
 
-## 3. Portal 바깥에 dropdown trigger 설정하기
+## 3. Portal 바깥에서 dropdown trigger 설정하기
 
-3번 주제
+이제 트리거 컴포넌트에서 `Dropdown` 컴포넌트를 불러와서 사용해보겠습니다. `Dropdown` 컴포넌트에서 사용하는 `showDropdown` 이라는 상태값을 이용 하고 리렌더링의 영향을 최소화 하기 위해 가장 작은 단위의 컴포넌트를 트리거로 사용합니다. 아래는 `Button_IconType`이라는 컴포넌트에 클릭 이벤트 핸들러를 사용해서 구현한 코드 입니다.
+
+```typescript
+import Dropdown from "../dropdown/Dropdown";
+import Dropdown_Member from "../dropdown/Dropdown.Member";
+import { useRecoilState } from "recoil";
+
+export default function Button_Icontype({
+  children,
+}: {
+  children: React.ReactElement | string;
+}) {
+  const [showDropdown, setShowDropdown] = useRecoilState(dropdownOpenAtom);
+
+  return (
+    <>
+      <IcontypeButton
+        onClick={setShowDropdown("MEMBER")}
+      >
+        {children}
+      </IcontypeButton>
+      {showDropdown && (
+        <Dropdown>
+          <Dropdown_Member />
+        </Dropdown>
+      )}
+    </>
+  );
+}
+```
+
+위 코드에서는 버튼 클릭 시, `showDropdown` 상태 값을 업데이트 하여 `Dropdown_Member` 컴포넌트를 `dropdown portal`에서 렌더링하게 됩니다. 코드를 실행해보면 의도한 대로 동작하지만, 2가지 문제가 발생하는 것을 확인할 수 있습니다.
+
+1. 드롭다운 컴포넌트의 위치가 **좌측 상단**으로 고정됨
+2. 동일한 버튼 컴포넌트를 사용하고 있는 **모든 아이콘 버튼 클릭 시 드롭다운 컴포넌트가 표시**됨
+
+문제를 해결하기 위해, 그리고 위에서 언급한 제약사항 3번(렌더링된 드롭다운은 트리거 컴포넌트 근처에 위치해야 합니다.)을 만족시킬 수 있도록 드롭다운의 컴포넌트의 위치를 계산하는 유틸 함수를 작성해 보도록 하겠습니다.
 
 &nbsp;
 
 ## 4. 컴포넌트의 표시 위치 계산하기
 
-4번 주제
+이제 `showDropdown` 상태를 변경하는 트리거 컴포넌트의 위치를 계산하는 함수를 추가해보겠습니다.
+
+```typescript
+export function calculateElementPositionAndSize({
+  target,
+}: {
+  target: Element;
+}) {
+  const targetRect = target?.getBoundingClientRect();
+  const targetPosition = {
+    x: targetRect.left,
+    y: targetRect.top,
+    width: targetRect.width,
+    height: targetRect.height,
+  };
+
+  return targetPosition;
+}
+```
+```typescript
+import Dropdown from "../dropdown/Dropdown";
+import Dropdown_Member from "../dropdown/Dropdown.Member";
+import { useRecoilState } from "recoil";
+import { useRef } from "react";
+
+export default function Button_Icontype({
+  children,
+}: {
+  children: React.ReactElement | string;
+}) {
+  const [showDropdown, setShowDropdown] = useRecoilState(dropdownOpenAtom);
+
+  const targetRef = useRef(null);
+
+  function calculateElementPositionAndSize({
+    target,
+  }: {
+    target: Element;
+  }) {
+    const targetRect = target?.getBoundingClientRect();
+    const targetPosition = {
+        x: targetRect.left,
+        y: targetRect.top,
+        width: targetRect.width,
+        height: targetRect.height,
+    };
+
+    return targetPosition;
+  }
+
+  return (
+    <>
+      <IcontypeButton
+        ref={targetRef}
+        onClick={setShowDropdown("MEMBER")}
+      >
+        {children}
+      </IcontypeButton>
+      {showDropdown && (
+        <Dropdown>
+          <Dropdown_Member data={calculateElementPositionAndSize(targetRef)} />
+        </Dropdown>
+      )}
+    </>
+  );
+}
+```
+
+추가된 함수는 `target`으로 받은 인자에 `getBoundingClientRect` 메소드를 실행하여 반환된 `left`, `top`, `width`, `height` 값을 각각 `x`, `y`, `width`, `height` 값으로 리턴합니다. 이 함수의 반환된 결과값을 `Dropdown_Member` 컴포넌트의 `data` props로 할당해주고 props로 내려받은 값을 아래 처럼 위치 정보로 처리할 수 있습니다.
+
+```typescript
+import { MenuGroup_ListType } from "../compound/MenuGroup.listType";
+import Button_Boxtype from "../basic/Button.boxType";
+import { DropdownProps } from "../../global/customType";
+import { LABELS } from "../../global/constants";
+import { DropdownUIContainerStyle } from "./Dropdown";
+
+export default function Dropdown_Member({ data }: DropdownProps) {
+  return (
+    <DropdownUIContainerStyle data={data}>
+      <MenuGroup_ListType>
+        <li>
+          <Button_Boxtype>{LABELS.LABEL_WITHDRAW_MEMBER}</Button_Boxtype>
+        </li>
+      </MenuGroup_ListType>
+    </DropdownUIContainerStyle>
+  );
+}
+```
 
 &nbsp;
 
 ## 5. 드롭다운 고유 키를 사용한 분기 처리
 
-5번 주제
+이제 드롭다운의 위치 좌표를 트리거 엘리먼트의 기준 좌표에 따라 가변적으로 배치할 수 있습니다. 다만 아직도 해결해야 하는 문제는, `showDropdown` 이라는 1개의 상태값만 사용하고 있기 때문에 `IcontypeButton` 컴포넌트를 사용하는 상위 컴포넌트가 여러개 존재한다고 가정한다면, 1개의 클릭 이벤트만 발생하더라도 해당 컴포넌트를 사용하고 있는 모든 컴포넌트에서 `Dropdown_Member` 컴포넌트를 호출하게 됩니다.
+
+![duplicated dropdown](/blog/assets/posts/asset-dropdown-duplicated.png)
+
+&nbsp;
+
+이 문제를 해결하기 위해, `showDropdown` 상태가 클릭된 컴포넌트에 따라 고유한 값을 가지도록 개선하여 **하나의 액션 당 하나의 드롭다운 컴포넌트만 표시**될 수 있도록 개선해보겠습니다. 먼저 여러 컴포넌트에서 사용할 수 있도록 useDropdown 이라는 커스텀 훅으로 공통 로직을 분리합니다.
+
+```typescript
+import { throttle } from "lodash";
+import { useState, useEffect, useRef } from "react";
+import { useRecoilState } from "recoil";
+import { dropdownOpenAtom } from "../../atoms/globalAtoms";
+import { calculateElementPositionAndSize } from "../../util/handleElement";
+
+export function useDropdown({
+  dropdownType,
+  dropdownId,
+}: {
+  dropdownType?: string | undefined;
+  dropdownId?: string | undefined;
+}) {
+  const [showDropdown, setShowDropdown] = useRecoilState(dropdownOpenAtom);
+  const [targetPosition, setTargetPosition] = useState({
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0,
+  });
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const targetRef = useRef(null);
+
+  // custom hook의 props로 전달된 2개의 값을 조합하여 드롭다운 unique key를 생성
+  const showDropdownUniqueKey = `${dropdownType}_${dropdownId}`;
+
+  const handleResize = throttle(() => {
+    setWindowWidth(window.innerWidth);
+  }, 500);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      // cleanup
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [handleResize]);
+
+  /* resize 이벤트 발생 시 data props 갱신 */
+  useEffect(() => {
+    if (showDropdown && targetRef.current) {
+      const targetPos = calculateElementPositionAndSize({
+        target: targetRef.current as Element,
+      });
+      setTargetPosition(targetPos);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [windowWidth]);
+
+  function handleDropdownTrigger() {
+    const targetPos = calculateElementPositionAndSize({
+      target: targetRef.current as unknown as Element,
+    });
+    setTargetPosition(targetPos);
+    setShowDropdown(showDropdownUniqueKey);
+  }
+
+  return {
+    targetRef,
+    showDropdown,
+    targetPosition,
+    handleDropdownTrigger,
+    showDropdownUniqueKey,
+  };
+}
+```
+
+위 커스텀 훅에서는 props로 전달받은 2개의 값을 조합하여 `showDropdownUniqueKey` 라는 값을 생성하고, `handleDropdownTrigger` 함수 호출 시 `showDropdown` 상태에 `showDropdownUniqueKey`을 할당하여 트리거한 컴포넌트에 따라 고유한 상태 값을 가질 수 있도록 합니다. 아래 코드처럼 커스텀 훅을 적용합니다.
+
+```typescript
+import { TYPES } from "../../global/constants";
+import Dropdown from "../dropdown/Dropdown";
+import Dropdown_Member from "../dropdown/Dropdown.Member";
+import { useDropdown } from "../hooks/useDropdown";
+
+export default function Button_Icontype({
+  children,
+  onClick,
+  dropdownId,
+  dropdownType,
+}: {
+  children: React.ReactElement | string;
+  onClick?: (e: React.SyntheticEvent) => void;
+  dropdownId?: string;
+  dropdownType?: string;
+}) {
+  const {
+    targetRef,
+    showDropdown,
+    targetPosition,
+    handleDropdownTrigger,
+    showDropdownUniqueKey,
+  } = useDropdown({
+    dropdownType,
+    dropdownId,
+  });
+
+  return (
+    <>
+      <IcontypeButton
+        ref={targetRef}
+        className={showDropdown === showDropdownUniqueKey ? "active" : ""}
+        onClick={dropdownType ? handleDropdownTrigger : onClick}
+      >
+        {children}
+      </IcontypeButton>
+      {showDropdown === showDropdownUniqueKey &&
+        dropdownType === TYPES.DROPDOWN_KEY_MEMBER_MORE && (
+          <Dropdown>
+            <Dropdown_Member data={targetPosition} />
+          </Dropdown>
+        )}
+    </>
+  );
+}
+```
+
+이제 `showDropdown` 상태값이 `showDropdownUniqueKey` 인 경우에만 `dropdown` 컴포넌트를 렌더링하게 됩니다.
+
+&nbsp;
+
+![dropdown components](/blog/assets/posts/asset-dropdown-demo.gif)
+
+&nbsp;
+
+> 태그 Tag : #react #typescript #react-portal
