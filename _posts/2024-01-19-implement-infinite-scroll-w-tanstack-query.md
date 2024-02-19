@@ -1,5 +1,5 @@
 ---
-title: Tanstack query를 사용한 무한 스크롤 UI 구현하기
+title: Tanstack query를 활용한 무한 스크롤 UI 구현하기
 updated: 2024-01-19 12:00
 ---
 
@@ -9,7 +9,7 @@ updated: 2024-01-19 12:00
 
 &nbsp;
 
-새롭게 개인 프로젝트를 진행하면서 사용해보았던 기술들에 대해서 기록을 남겨보려 합니다. 오늘은 두 번째 주제로, 서버 상태를 손쉽게 관리할 수 있는 기능을 제공하는 `Tanstack query` (a.k.a react query) 를 사용해서 무한 스크롤을 구현해보도록 하겠습니다.
+새롭게 개인 프로젝트를 진행하면서 다뤘던 기술들에 대해서 기록을 남겨보려 합니다. 오늘은 두 번째 주제로, 서버 상태를 손쉽게 관리할 수 있는 기능을 제공하는 `Tanstack query` (a.k.a react query) 를 사용해서 무한 스크롤을 구현해보도록 하겠습니다.
 
 > 프로젝트 보러가기 👉 : [링크](http://35.231.16.39/)
 
@@ -266,7 +266,7 @@ export default App
 
 ## 4. Skeleton UI 구현하기
 
-트리거 요소는 다음에 불러올 페이지가 있다면 표시하게 되는데요, 그래서 통상 **로딩 엘리먼트**나 해당 리스트 디자인을 dummy화한 **Skeleton UI**를 만들어 활용하게 됩니다. 본 프로젝트에서는 **Skeleton UI**를 만들어 입혀보도록 하겠습니다.
+트리거 요소는 다음에 불러올 페이지가 있다면 표시하게 되는데요, 그래서 로딩중임을 알리는 **로딩 엘리먼트**나 해당 리스트의 디자인을 dummy화한 **Skeleton UI**를 만들어 활용하게 됩니다. 본 프로젝트에서는 **Skeleton UI**를 만들어 입혀보도록 하겠습니다.
 
 ```typescript
 /* eslint-disable react-refresh/only-export-components */
