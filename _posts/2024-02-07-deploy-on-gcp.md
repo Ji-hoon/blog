@@ -186,7 +186,7 @@ tcp        0      0 127.0.0.1:5001          0.0.0.0:*               LISTEN
 
 &nbsp;
 
-![firewall](/blog/assets/posts/asset-deploy-on-gcp-screenshot05.png)
+[![final](/blog/assets/posts/asset-deploy-on-gcp-screenshot05.png)](http://35.231.16.39/)
 
 &nbsp;
 
