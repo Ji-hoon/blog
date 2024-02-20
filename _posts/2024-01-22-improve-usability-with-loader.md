@@ -45,7 +45,9 @@ updated: 2024-01-22 12:00
 
 > 참고 - 로딩 피드백 패턴 : [링크](https://pencilandpaper.io/articles/ux-pattern-analysis-loading-feedback/) & 간략한 번역 : [링크](https://news.hada.io/topic?id=10588)
 
-이전 포스팅에서 tanstack query를 사용한 무한 스크롤을 구현해면서 적용했던 Skeleton UI도 로딩 인디케이터의 한 종류 인데요. 이번 포스팅에서는 **로딩 스피너 Loading Spinner** 와 **투명도 Opacity** 를 사용해서 로딩 인디케이터를 구현해보도록 하겠습니다.
+이전 포스팅에서 tanstack query를 사용한 무한 스크롤을 구현하면서 적용했던 Skeleton UI도 로딩 인디케이터의 한 종류 인데요. 이번 포스팅에서는 **로딩 스피너 Loading Spinner** 와 **투명도 Opacity** 를 사용해서 로딩 인디케이터를 구현해보도록 하겠습니다.
+
+> 이전 글 - Tanstack query를 활용한 무한 스크롤 UI 구현하기 : [링크](https://ji-hoon.github.io/blog/implement-infinite-scroll-w-tanstack-query)
 
 &nbsp;
 
