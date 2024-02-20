@@ -5,7 +5,7 @@ updated: 2024-01-22 12:00
 
 > '가계부를 부탁해' 프로젝트를 진행하며 작성한 내용입니다.
 
-[![project-logo](https://github.com/Ji-hoon/Home-accountant/raw/master/client/public/img-logo.png)](https://github.com/Ji-hoon/Home-accountant)
+[![project-logo](https://github.com/Ji-hoon/Home-accountant/raw/master/client/public/img-logo.png)](https://github.com/Ji-hoon/Home-accountant){:target="_blank"}
 
 &nbsp;
 
@@ -33,7 +33,7 @@ updated: 2024-01-22 12:00
 
 ## 1. 로딩 인디케이터와 사용자 경험
 
-![loading indicators](https://media.licdn.com/dms/image/D4D12AQGOVO3YnUK39w/article-inline_image-shrink_1000_1488/0/1689576267966?e=1714003200&v=beta&t=VJCU8ZRHhfd4GIOgPcL_0WoFuCzqmQpjBt8h8xYxLEk)*다양한 타입의 loading indicator -- [출처](https://www.linkedin.com/pulse/beyond-loading-bar-elevating-user-experience-dynamic-progress-murthy/)*{: .caption}
+![loading indicators](https://media.licdn.com/dms/image/D4D12AQGOVO3YnUK39w/article-inline_image-shrink_1000_1488/0/1689576267966?e=1714003200&v=beta&t=VJCU8ZRHhfd4GIOgPcL_0WoFuCzqmQpjBt8h8xYxLEk)*다양한 타입의 loading indicator -- [출처](https://www.linkedin.com/pulse/beyond-loading-bar-elevating-user-experience-dynamic-progress-murthy/){:target="_blank"}*{: .caption}
 
 &nbsp;
 
@@ -43,7 +43,7 @@ updated: 2024-01-22 12:00
 2. 로딩중에 다른 기능에 대한 접근을 제한하는 경우, 명시적으로 어떤 기능으로 인해 제한되었는지 알려줄 수 있어야 합니다.
 3. 변경이 잦은 데이터의 경우, 로딩 인디케이터를 노출하는 영역을 최소화해야 합니다.
 
-> 참고 - 로딩 피드백 패턴 : [링크](https://pencilandpaper.io/articles/ux-pattern-analysis-loading-feedback/) & 간략한 번역 : [링크](https://news.hada.io/topic?id=10588)
+> 참고 - 로딩 피드백 패턴 : [링크](https://pencilandpaper.io/articles/ux-pattern-analysis-loading-feedback/){:target="_blank"} & 간략한 번역 : [링크](https://news.hada.io/topic?id=10588){:target="_blank"}
 
 이전 포스팅에서 tanstack query를 사용한 무한 스크롤을 구현하면서 적용했던 Skeleton UI도 로딩 인디케이터의 한 종류 인데요. 이번 포스팅에서는 **로딩 스피너 Loading Spinner** 와 **투명도 Opacity** 를 사용해서 로딩 인디케이터를 구현해보도록 하겠습니다.
 
@@ -53,7 +53,7 @@ updated: 2024-01-22 12:00
 
 ## 2. Loader 라이브러리 선택하기
 
-React 프로젝트에서 사용할 loader 라이브러리를 검색해보면 굉장히 많은 패키지를 찾을 수 있습니다. 하지만 제품의 사용자 인터페이스 디자인에 적합한 Loader 를 찾다보니 loader 만을 제공하는 패키지 보다는 컴포넌트 단위로 제공하는 패키지가 적합하다고 판단하였고, 사이즈와 컬러, 속도를 튜닝하기 용이한 [rsuite](https://rsuitejs.com/components/loader/)의 **Loader**를 적용했습니다.
+React 프로젝트에서 사용할 loader 라이브러리를 검색해보면 굉장히 많은 패키지를 찾을 수 있습니다. 하지만 제품의 사용자 인터페이스 디자인에 적합한 Loader 를 찾다보니 loader 만을 제공하는 패키지 보다는 컴포넌트 단위로 제공하는 패키지가 적합하다고 판단하였고, 사이즈와 컬러, 속도를 튜닝하기 용이한 [rsuite](https://rsuitejs.com/components/loader/){:target="_blank"} 의 **Loader**를 적용했습니다.
 
 ```typescript
 import { useExpenses } from "../Expenses/Expenses.hooks";
@@ -336,7 +336,7 @@ export default function Button_Boxtype({
 
 
 
-> 참고하면 좋은 링크 - 스켈레톤을 무조건 보여주는게 도움이 될까? : [링크](https://tech.kakaopay.com/post/skeleton-ui-idea/) / UX와 성능 개선 방법 : [링크](https://fe-developers.kakaoent.com/2022/220120-ux-and-perf-in-kakaowebtoon/)
+> 참고하면 좋은 링크 - 스켈레톤을 무조건 보여주는게 도움이 될까? : [링크](https://tech.kakaopay.com/post/skeleton-ui-idea/){:target="_blank"} / UX와 성능 개선 방법 : [링크](https://fe-developers.kakaoent.com/2022/220120-ux-and-perf-in-kakaowebtoon/){:target="_blank"}
 
 
 
