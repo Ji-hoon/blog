@@ -98,7 +98,7 @@ export const ValueWrapper = styled.div`
 
 &nbsp;
 
-`useInfiniteQuery` 가 반환하는 `fetchStatus` 값이 제공하는 타입을 살펴보면 아래와 같습니다. 각각 **불러오는중** | **중단됨** | **쉬는중** 상태를 나타냅니다.
+`useInfiniteQuery` 가 반환하는 `fetchStatus` 값이 제공하는 타입을 살펴보면 아래와 같습니다. 각각 **불러오는중**, **중단됨** , **쉬는중** 상태를 나타냅니다.
 
 ```typescript
 type FetchStatus = 'fetching' | 'paused' | 'idle';
@@ -264,7 +264,7 @@ function Dialog() {
 }
 ```
 
-> Button_BoxType
+> Button_BoxType 컴포넌트
 
 ```typescript
 import styled from "styled-components";
@@ -328,7 +328,7 @@ export default function Button_Boxtype({
 
 &nbsp;
 
-![mutating handling](/assets/posts/asset-mutating-loading-indicator.gif)
+![mutating handling](/blog/assets/posts/asset-mutating-loading-indicator.gif)
 
 &nbsp;
 
