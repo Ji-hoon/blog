@@ -5,7 +5,7 @@ updated: 2024-01-13 12:00
 
 > '가계부를 부탁해' 프로젝트를 진행하며 작성한 내용입니다.
 
-[![project-logo](https://github.com/Ji-hoon/Home-accountant/raw/master/client/public/img-logo.png)](https://github.com/Ji-hoon/Home-accountant)
+[![project-logo](https://github.com/Ji-hoon/Home-accountant/raw/master/client/public/img-logo.png)](https://github.com/Ji-hoon/Home-accountant){:target="_blank"}
 
 &nbsp;
 
@@ -45,7 +45,7 @@ updated: 2024-01-13 12:00
 
 드롭다운 패턴에는 UX 관점에서 중요한 특징이 있는데 ① UI를 호출하기 위한 1개 이상의 **트리거** 요소가 필요하며, ② 트리거 요소를 클릭했을 때 표시되는 **드롭다운 UI 바깥 영역을 클릭 또는 포커스** 되었다면 UI는 사라져야 한다는 점입니다. 개발 관점에서는 ③ 동일한 드롭다운 컴포넌트가 여러 곳에서 반복적으로 사용될 수 있다는 특징이 있습니다.
 
-> 참고 - Dropdown pattern : [링크](https://semantic-ui.com/modules/dropdown.html)
+> 참고 - Dropdown pattern : [링크](https://semantic-ui.com/modules/dropdown.html){:target="_blank"}
 
 이러한 특징 때문에 드롭다운 컴포넌트를 구현한다면 아래 3가지 제약사항을 고려해야 합니다.
 
@@ -55,7 +55,7 @@ updated: 2024-01-13 12:00
 
 React 16 버전에 추가된 `react portal` 을 사용하면 위 제약사항을 만족시키면서 드롭다운 UI를 구현할 수 있습니다. (3번은 별도 유틸 함수로 구현)
 
-> 참고 - React Portals 가이드 : [링크](https://reactjs-kr.firebaseapp.com/docs/portals.html) / createPortal 사용 가이드 : [링크](https://react.dev/reference/react-dom/createPortal)
+> 참고 - React Portals 가이드 : [링크](https://reactjs-kr.firebaseapp.com/docs/portals.html){:target="_blank"} / createPortal 사용 가이드 : [링크](https://react.dev/reference/react-dom/createPortal){:target="_blank"}
 
 &nbsp;
 

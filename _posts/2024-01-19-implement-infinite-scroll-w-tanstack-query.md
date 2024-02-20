@@ -5,7 +5,7 @@ updated: 2024-01-19 12:00
 
 > '가계부를 부탁해' 프로젝트를 진행하며 작성한 내용입니다.
 
-[![project-logo](https://github.com/Ji-hoon/Home-accountant/raw/master/client/public/img-logo.png)](https://github.com/Ji-hoon/Home-accountant)
+[![project-logo](https://github.com/Ji-hoon/Home-accountant/raw/master/client/public/img-logo.png)](https://github.com/Ji-hoon/Home-accountant){:target="_blank"}
 
 &nbsp;
 
@@ -33,7 +33,7 @@ updated: 2024-01-19 12:00
 
 ## 1. Tanstack query 소개
 
-![dropdown UI pattern](https://developers.google.com/static/search/docs/images/ecom-pagination-load-more-infinite-scroll.png?hl=ko)*대량의 데이터 표시 방식 3가지 -- 출처 : google developers ([링크](https://developers.google.com/search/docs/specialty/ecommerce/pagination-and-incremental-page-loading?hl=ko))*{: .caption}
+![dropdown UI pattern](https://developers.google.com/static/search/docs/images/ecom-pagination-load-more-infinite-scroll.png?hl=ko)*대량의 데이터 표시 방식 3가지 -- 출처 : google developers ([링크](https://developers.google.com/search/docs/specialty/ecommerce/pagination-and-incremental-page-loading?hl=ko){:target="_blank"})*{: .caption}
 
 &nbsp;
 
@@ -43,13 +43,13 @@ updated: 2024-01-19 12:00
 
 React에서도 별도 라이브러리 없이 무한 스크롤 구현이 가능하지만, 강력한 서버 상태 관리 기능, 캐싱, 동기화 기능을 제공하는 tanstack query를 사용하면 보다 손쉽게 기능을 구현할 수 있습니다.
 
-> 참고 - Tanstack query tutorial : [링크](https://github.com/ssi02014/react-query-tutorial) / v5 변경사항 : [링크](https://www.moonkorea.dev/React-TanStack-Query-v5-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0-(%EB%A6%AC%EC%95%A1%ED%8A%B8%EC%BF%BC%EB%A6%AC)) / tanstack query 없이 infinite 스크롤 구현 : [링크](https://medium.com/@itsanuragjoshi/pagination-vs-infinite-scroll-vs-load-more-data-loading-ux-patterns-in-react-cccd261d3984)
+> 참고 - Tanstack query tutorial : [링크](https://github.com/ssi02014/react-query-tutorial){:target="_blank"} / v5 변경사항 : [링크](https://www.moonkorea.dev/React-TanStack-Query-v5-%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0-(%EB%A6%AC%EC%95%A1%ED%8A%B8%EC%BF%BC%EB%A6%AC)){:target="_blank"} / tanstack query 없이 infinite 스크롤 구현 : [링크](https://medium.com/@itsanuragjoshi/pagination-vs-infinite-scroll-vs-load-more-data-loading-ux-patterns-in-react-cccd261d3984){:target="_blank"}
 
 &nbsp;
 
 ## 2. useInfiniteQuery와 Intersection observer
 
-아래 코드는 [공식 가이드 문서](https://tanstack.com/query/v5/docs/framework/react/guides/infinite-queries#example)에서 제공하는 `useInfiniteQuery` 샘플 코드입니다.
+아래 코드는 [공식 가이드 문서](https://tanstack.com/query/v5/docs/framework/react/guides/infinite-queries#example){:target="_blank"} 에서 제공하는 `useInfiniteQuery` 샘플 코드입니다.
 
 ```typescript
 import { useInfiniteQuery } from '@tanstack/react-query'
@@ -110,7 +110,7 @@ function Projects() {
 
 이 때 사용되는 메소드가 `intersection observer`라는 브라우저 내장 API입니다. 이 API는 요소들이 화면에 보이는 정도를 감지하고 이벤트를 발생시키는 기능을 제공하는데, 이를 토대로 언제 `fetchNextPage`를 호출할 지 결정할 수 있습니다.
 
-> 참고 - Mozilla 공식 문서 : [링크](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
+> 참고 - Mozilla 공식 문서 : [링크](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API){:target="_blank"}
 
 아래는 샘플 코드 입니다. 
 
