@@ -47,13 +47,13 @@ updated: 2024-03-14 12:00
 
 그럼 반드시 테스트 주도 개발을 해야 할까요? 이 부분에 대해서는 장단점을 먼저 짚어보겠습니다.
 
-> 장점
+#### 장점
 
 1. 코드가 내 손을 벗어나기 전에 가장 빠르게 피드백 받을 수 있다.
 2. 필요한 코드만 작성하기 때문에 오버 엔지니어링을 방지할 수 있다.
 3. 한 번 테스트 코드를 작성해두면, 애플리케이션 코드가 변경되었을 때 다시 테스트 코드를 작성할 필요가 없어 효율적이다.
 
-> 단점
+#### 단점
 
 1. 테스트 코드를 작성하지 않는 경우에 비해서 초기 비용(시간/리소스) 증가로 인해 생산성 저하가 발생할 수 있다.
 2. 팀원들이 테스트 코드 작성과 TDD에 적응하는 기간이 필요하다.
@@ -100,16 +100,12 @@ updated: 2024-03-14 12:00
 
 **Jest**는 가장 많이 사용되는 테스트용 라이브러리 입니다. **React**에서는 **React Testing Library**와 같이 사용하게 되는데요. **CRA**가 아닌 **Vite**를 사용하게 될 경우 **Vitest**가 설정이 더 간편하고 (별도 테스트 설정 파일 대신 `vite.config.ts` 파일에 설정), **Jest**보다 속도가 더 빠르다는 장점이 있어 선택했습니다.
 
-&nbsp;
-
 | - | Jest | Vitest |
 |-------|-------|-------|
 | 문서화 및 참고 자료 | 다양함 | 상대적으로 적음 |
 | 속도 | - | 상대적으로 빠름 |
 | ES Module 사용 | 설정이 어려움 | 설정이 쉬움 |
 | 문법 | test("", () => {}) | it("", () => {}) |
-
-&nbsp;
 
 > 참고 - Vitest 소개 : [링크](https://careerly.co.kr/comments/98604){:target="_blank"} / Vitest Config 방법 : [링크](https://vitest.dev/config/){:target="_blank"}
 
@@ -132,8 +128,6 @@ app-name$ npm install --save-dev vitest
 app-name$ npm install --save-dev @testing-library/react
 app-name$ npm install --save-dev @testing-library/js-dom
 ```
-
-&nbsp;
 
 > vite.config.ts
 
@@ -161,7 +155,7 @@ export default defineConfig({
   },
 });
 ```
-### 코드 설명
+#### 코드 설명
 
 1. **globals** : 테스트 파일에서 전역으로 사용할 변수를 설정합니다. true 로 설정하면 vitest의 globals를 사용할 수 있습니다.
 2. **environment** : 테스트 환경을 설정합니다. “jsdom” 으로 설정하면 브라우저 환경을 시뮬레이션하는 JSDOM 환경을 사용할 수 있습니다.
@@ -189,7 +183,7 @@ afterEach(() => {});
 
 afterAll(() => {});
 ```
-### 코드 설명
+#### 코드 설명
 
 1. **beforeAll** : 테스트 파일 단위로 전체 테스트 시작 전에 실행할 코드를 작성합니다.
 2. **beforeEach** : 각 테스트 시작 전에 실행할 코드를 작성합니다.
@@ -198,13 +192,9 @@ afterAll(() => {});
 
 &nbsp;
 
-만약 TypeScript를 사용한다면, 
-
 ## 5. 테스트 코드 작성하기
 
 그럼 이제 간단한 샘플 테스트 코드를 작성해보겠습니다. 테스트 코드를 작성할 파일명은 `*.test.tsx` 형태로 **.test**를 붙여주어야 합니다. 테스트 코드는 기본적으로 **it** 명령어로 테스트 단위를 구분하며, **render** 메소드로 테스트할 컴포넌트를 불러오며, **expect** 메소드로 테스트 통과 여부를 검증합니다.
-
-&nbsp;
 
 > /src/Sample.test.tsx
 
@@ -221,7 +211,7 @@ it("샘플 테스트", () => {
 });
 ```
 
-### 코드 설명
+#### 코드 설명
 
 1. vitest로부터 expect와 it 메소드를 import 합니다.
 2. @testing-library/react로부터 render와 screen 메소드를 import 합니다.
@@ -252,15 +242,12 @@ it("샘플 테스트", () => {
 
 &nbsp;
 
-<details>
-<summary>참고하면 좋은 링크 (클릭하여 펼치기)</summary>
+#### 참고하면 좋은 링크
 
 - RTL 쿼리 : [링크](https://testing-library.com/docs/queries/about/){:target="_blank"}
 - RTL 쿼리 cheatseat : [링크](https://testing-library.com/docs/react-testing-library/cheatsheet/){:target="_blank"}
 - RTL 쿼리 우선순위 : [링크](https://testing-library.com/docs/queries/about/#priority){:target="_blank"}
 - Jest-dom matchers : [링크](https://github.com/testing-library/jest-dom){:target="_blank"}
-  
-</details>
 
 &nbsp;
 
