@@ -214,7 +214,7 @@ afterAll(() => {});
 
 그럼 이제 간단한 샘플 테스트 코드를 작성해보겠습니다. 테스트 코드를 작성할 파일명은 `*.test.tsx` 형태로 **.test**를 붙여주어야 합니다. 테스트 코드는 기본적으로 **it** 명령어로 테스트 단위를 구분하며, **render** 메소드로 테스트할 컴포넌트를 불러오고, **expect** 메소드로 테스트 통과 여부를 검증합니다.
 
-> /src/Sample.test.tsx
+> /src/tests/Sample.test.tsx
 
 ```typescript
 import { expect, it } from "vitest";
@@ -266,13 +266,15 @@ it("샘플 테스트", () => {
 
 지금까지 테스트 코드를 작성하기 위한 기본적인 지식과 환경 설정을 진행했는데요. 본격적인 테스트 코드 작성은 이어지는 글에서 다뤄보도록 하겠습니다. 🥰
 
+> 다음 글 - Vitest, React Testing Library를 이용한 테스트 코드 작성하기 (2) : [링크](https://ji-hoon.github.io/blog/run-test-with-vitest-and-rtl-2)
+
 &nbsp;
 
 #### 참고하면 좋은 링크
 
-- RTL 쿼리 : [링크](https://testing-library.com/docs/queries/about/){:target="_blank"}
-- RTL 쿼리 cheatseat : [링크](https://testing-library.com/docs/react-testing-library/cheatsheet/){:target="_blank"}
-- RTL 쿼리 우선순위 : [링크](https://testing-library.com/docs/queries/about/#priority){:target="_blank"}
+- Testing Library Queries : [링크](https://testing-library.com/docs/queries/about/){:target="_blank"}
+- Testing Library cheatseat : [링크](https://testing-library.com/docs/react-testing-library/cheatsheet/){:target="_blank"}
+- Testing Library Queries Priority : [링크](https://testing-library.com/docs/queries/about/#priority){:target="_blank"}
 - Jest-dom matchers : [링크](https://github.com/testing-library/jest-dom){:target="_blank"}
 
 &nbsp;
