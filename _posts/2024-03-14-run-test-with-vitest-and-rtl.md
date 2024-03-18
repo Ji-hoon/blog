@@ -72,22 +72,22 @@ updated: 2024-03-14 12:00
 
 &nbsp;
 
-> 1. 유닛(단위) 테스트 — Unit tests
+#### 유닛(단위) 테스트 — Unit tests
 
 * 사용 툴 : **Jasmine**, **Jest**, **Karma**, **Mocha**
 * 컴포넌트 또는 특정 함수 단위로 분할하여 검증하는 테스트 방식입니다. 작은 단위의 컴포넌트나 기능 등에 국한하여 검증하기에 비용이 가장 적습니다.
 
-> 2. 기능 테스트 — Functional tests
+#### 기능 테스트 — Functional tests
 
 * 사용 툴 : **Jest**, **Testing Library**
 * 애플리케이션의 비즈니스 요구 사항을 만족하는 지 검증하는 테스트 방식입니다. 
 
-> 3. 통합 테스트 — Integration tests
+#### 통합 테스트 — Integration tests
 
 * 사용 툴 : **Supertest**
 * 여러 단위 또는 구성 요소 간의 상호 작용을 검증하는 테스트 방식입니다. 데이터베이스와의 상호 작용을 테스트합니다.
   
-> 4. 인수 테스트 / E2E 테스트 —  Acceptance / End to End tests
+#### 인수 테스트 / E2E 테스트 —  Acceptance / End to End tests
 
 * 사용 툴 : **Cypress**, **Puppeteer**, **Selenium**
 * 시스템의 시작부터 끝까지 전체 흐름을 확인하며 검증하는 테스트 방식입니다. 실제 환경과 똑같이 구성해야 하기에 비용이 가장 높습니다.
