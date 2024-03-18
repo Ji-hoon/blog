@@ -192,9 +192,27 @@ afterAll(() => {});
 
 &nbsp;
 
+설정 코드를 모두 작성했다면, 이제 `package.json` 파일에도 스크립트를 추가해 줍니다.
+
+```json
+{
+  "name": "client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    ...
+    "test": "vitest --watch"
+  },
+  ...
+}
+```
+
+&nbsp;
+
 ## 5. 테스트 코드 작성하기
 
-그럼 이제 간단한 샘플 테스트 코드를 작성해보겠습니다. 테스트 코드를 작성할 파일명은 `*.test.tsx` 형태로 **.test**를 붙여주어야 합니다. 테스트 코드는 기본적으로 **it** 명령어로 테스트 단위를 구분하며, **render** 메소드로 테스트할 컴포넌트를 불러오며, **expect** 메소드로 테스트 통과 여부를 검증합니다.
+그럼 이제 간단한 샘플 테스트 코드를 작성해보겠습니다. 테스트 코드를 작성할 파일명은 `*.test.tsx` 형태로 **.test**를 붙여주어야 합니다. 테스트 코드는 기본적으로 **it** 명령어로 테스트 단위를 구분하며, **render** 메소드로 테스트할 컴포넌트를 불러오고, **expect** 메소드로 테스트 통과 여부를 검증합니다.
 
 > /src/Sample.test.tsx
 
@@ -219,6 +237,14 @@ it("샘플 테스트", () => {
 4. render 메소드에 렌더링할 컴포넌트 또는 jsx를 작성합니다.
 5. screen.***ByRole 메소드로 렌더링된 내용 중 "샘플 코드입니다."와 동일한 문자를 가지고 있는 "heading" 요소를 찾아 sampleHeading 엘리먼트에 할당합니다.
 6. expect 메소드로 sampleHeading가 화면에 존재하는지 검증합니다.
+
+&nbsp;
+
+마지막으로 콘솔 창에서 `npm test` 명령어를 실행하여 테스트 코드가 실행해 봅니다. 테스트가 성공하면 `passed` 카운트가, 실패하면 `fail` 카운트가 증가합니다. (--watch 옵션이 붙은 경우, 테스트 파일이 업데이트되면 자동으로 테스트를 재실행합니다.) 
+
+&nbsp;
+
+![result of sample test](/blog/assets/posts/asset-tdd-result-of-sample-test.png)*테스트가 성공했다.*{: .caption}
 
 &nbsp;
 
