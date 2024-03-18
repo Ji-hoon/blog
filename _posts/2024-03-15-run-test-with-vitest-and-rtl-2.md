@@ -307,6 +307,9 @@ describe("샘플 테스트 그룹", () => {
   ...
   it("버튼이 동작하는지 검증", async () => {
     ...
+    const queryText = await screen.findByText("클릭"); // API 응답값을 받은 뒤에 표시되기 때문에 find*** 로 변경
+    expect(queryText).toBeInTheDocument();
+
     screen.debug();
   })
   
