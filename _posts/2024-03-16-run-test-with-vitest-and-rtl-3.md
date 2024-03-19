@@ -239,7 +239,7 @@ export const mockUserLoaderData = vi.fn().mockReturnValue({
 
 &nbsp;
 
-## 4. portal을 사용하는 코드 검증하기
+## 4. React Portal을 사용하는 코드 검증하기
 
 마지막으로 Modal, Dropdown 처럼 `React Portal`을 사용한 `Dialog` 요소를 검증하는 코드를 작성해보도록 하겠습니다.
 
