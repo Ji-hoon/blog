@@ -23,12 +23,6 @@ updated: 2024-03-15 12:00
 
 [3. MSW로 mocking handler 설정하기](#3-msw로-mocking-handler-설정하기)
 
-<!-- [4. 로그인 테스트 시나리오 검증하기](#4-로그인-테스트-시나리오-검증하기)
-
-[5. 지출 내역, 자산 조회 시나리오 검증하기](#5-지출-내역-자산-조회-시나리오-검증하기)
-
-[6. 그룹 관리 시나리오 검증하기](#6-그룹-관리-시나리오-검증하기) -->
-
 &nbsp;
 
 ---
@@ -49,10 +43,9 @@ updated: 2024-03-15 12:00
 
 #### 지출 내역 시나리오
 
-1. 지출 내역 페이지 상단의 총 지출 금액과 지출 내역 리스트의 금액 값의 합이 일치해야 한다.
-2. 페이지 좌측의 월간 지출 내역 메뉴 클릭 시 날짜 표시 방식이 변경되고, 지출 내역이 업데이트 된다. (yyyy년 mm월)
-3. 개별 지출 내역을 클릭 시 "지출 내역 수정" 모달이 표시된다.
-4. 지출 내역 수정 모달 내에서 정보를 수정 후 하단의 컨펌 버튼 클릭 시 지출 내역이 업데이트 된다.
+1. 페이지 좌측의 월간 지출 내역 메뉴 클릭 시 날짜 표시 방식이 변경되고, 지출 내역이 업데이트 된다. (yyyy년 mm월)
+2. 개별 지출 내역을 클릭 시 "지출 내역 수정" 모달이 표시된다.
+3. 지출 내역 수정 모달 내에서 정보를 수정 후 하단의 컨펌 버튼 클릭 시 지출 내역이 업데이트 된다.
 
 #### 자산 조회 시나리오
 
@@ -280,7 +273,7 @@ afterAll(() => server.close()); // mock server 종료
 ```typescript
 import { expect, it, vi } from "vitest";
 import { logRoles, screen } from "@testing-library/react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { userEventSetup } from "./utils/utils";
 import axios from "axios";
 
@@ -325,19 +318,7 @@ describe("샘플 테스트 그룹", () => {
 이번 글에서는 테스트 시나리오와 환경 설정, 그리고 MSW를 활용한 API mocking에 대해서 다뤄보았습니다. 이어지는 글에서는 마지막으로 애플리케이션 테스트 시나리오에 기반한 실제 테스트 코드를 작성해보도록 하겠습니다. 🥰
 
 
-<!-- 
-&nbsp;
-
-## 4. 로그인 테스트 시나리오 검증하기
-
-먼저 **Vite**를 사용하여 프로젝트를 생성해줍니다.
-
-&nbsp;
-
-## 5. 지출 내역, 자산 조회 시나리오 검증하기
-
-그럼 이제 간단한 샘플 테스트 코드를 작성해보겠습니다. 테스트 코드를 작성할 파일명은 `*.test.tsx` 형태로 **.test**를 붙여주어야 합니다. 테스트 코드는 기본적으로 **it** 명령어로 테스트 단위를 구분하며, **render** 메소드로 테스트할 컴포넌트를 불러오며, **expect** 메
--->
+> 다음 글 - Vitest, React Testing Library를 이용한 테스트 코드 작성하기 (3) : [링크](https://ji-hoon.github.io/blog/run-test-with-vitest-and-rtl-3)
 
 &nbsp;
 
