@@ -204,7 +204,7 @@ describe("샘플 테스트 그룹", () => {
 
 &nbsp;
 
-![type of queries](/blog/assets/posts/asset-tdd-rtl-query-table.png)*테스트의 종류 -- 출처 : testing library ([링크](https://testing-library.com/docs/queries/about/#types-of-queries){:target="_blank"})*{: .caption}
+![type of queries](/blog/assets/posts/asset-tdd-rtl-query-table.png)*타입별 query - 출처 : testing library ([링크](https://testing-library.com/docs/queries/about/#types-of-queries){:target="_blank"})*{: .caption}
 
 &nbsp;
 
@@ -213,7 +213,7 @@ describe("샘플 테스트 그룹", () => {
 **[MSW(Mock Service Worker)](https://mswjs.io){:target="_blank"}**는 코드 상에 정의된 실제 API 주소로 응답을 주고받는게 아닌, 임의로 설정한 응답 값을 사용할 수 있도록 도와주는 라이브러리 입니다. 사용하려면 먼저 라이브러리를 추가합니다.
 
 ```shell
-app-name$ app-name$ npm install --save-dev msw
+app-name$ npm install --save-dev msw
 ```
 
 그 다음으로 **tests** 폴더 하위에 **mocks** 폴더를 생성한 뒤, `server.ts` 파일과 `handlers.ts` 파일을 각각 생성해줍니다.
@@ -311,7 +311,7 @@ describe("샘플 테스트 그룹", () => {
 
 &nbsp;
 
-![debug mode](/blog/assets/posts/asset-tdd-result-of-sample-test-debug.png)*mock handler에서 설정한 응답값이 표시*{: .caption}
+![debug mode](/blog/assets/posts/asset-tdd-result-of-sample-test-debug.png)*mock handler에서 설정한 응답값이 표시됨*{: .caption}
 
 &nbsp;
 
