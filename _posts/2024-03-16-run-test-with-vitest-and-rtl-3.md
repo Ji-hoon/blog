@@ -348,6 +348,7 @@ describe("[테스트 시나리오]", () => {
 
 #### 참고하면 좋은 링크
 
+- vite 프로젝트에서 msw, vitest를 이용해서 테스트 코드 작성 : [링크](https://velog.io/@ckstn0777/vite-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90%EC%84%9C-msw-vitest%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%B4-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%BD%94%EB%93%9C-%EC%9E%91%EC%84%B1%ED%95%B4%EB%B3%B4%EA%B8%B0){:target="_blank"}
 - it과 test의 차이 : [링크](https://puleugo.tistory.com/141){:target="_blank"}
 - React portal을 활용한 드롭다운 컴포넌트 구현하기 : [링크](https://ji-hoon.github.io/blog/implement-dropdown-with-react-portal){:target="_blank"}
 
