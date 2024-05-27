@@ -121,12 +121,12 @@ $ npm create vite@latest app-name -- --template react-ts
 $ cd app-name
 ```
 
-프로젝트를 생성하면 생성된 app 폴더 하위에 `vite.config.ts` 파일이 생성됩니다. 이제 **Vitest** 와 **React Testing Library (react, js-dom)** 를 추가하고 test 설정 코드를 추가합니다.
+프로젝트를 생성하면 생성된 app 폴더 하위에 `vite.config.ts` 파일이 생성됩니다. 이제 **Vitest** 와 **React Testing Library (react, jest-dom)** 를 추가하고 test 설정 코드를 추가합니다.
 
 ```shell
 app-name$ npm install --save-dev vitest
 app-name$ npm install --save-dev @testing-library/react
-app-name$ npm install --save-dev @testing-library/js-dom
+app-name$ npm install --save-dev @testing-library/jest-dom
 ```
 
 > vite.config.ts
