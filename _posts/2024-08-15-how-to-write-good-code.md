@@ -5,8 +5,6 @@ updated: 2024-08-15 12:00
 
 > ERP 제품 '로지메이트'의 프론트엔드 개발을 진행하며 작성한 내용입니다.
 
-![redesign preview](/blog/assets/logimate/HFS_LOGO.png)
-
 &nbsp;
 
 저는 24년 하반기부터 로지메이트라는 ERP(Enterprise Resource Planning, 전사적 자원 관리) 제품의 프론트엔드 개발을 담당하고 있습니다. 입사 후 운영 개발 건 들을 진행하면서 좋은 코드에 대해 고민하고 실제 프로뎍션 코드에도 반영했던 내용들을 공유해보고자 합니다.
