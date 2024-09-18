@@ -3,13 +3,13 @@ title: (작성중) 스토리북(Storybook)으로 디자인 시스템 구축하�
 updated: 2022-09-15 12:00
 ---
 
-> ERP 제품 '로지메이트'의 리디자인을 진행하며 작성한 내용입니다.
+> ERP 제품 '로지메이트'의 프론트엔드 개발을 진행하며 작성한 내용입니다.
 
 ![redesign preview](/blog/assets/logimate/HFS_LOGO.png)
 
 &nbsp;
 
-저는 24년 하반기부터 로지메이트라는 ERP(Enterprise Resource Planning, 전사적 자원 관리) 제품의 프론트엔드 개발을 담당하고 있습니다. 입사 후 첫 업무인 리디자인을 담당하고 개발을 진행하면서 자체 디자인 시스템 (LDS : Logimate Design System)을 구축하고 적용해본 경험을 공유해보고자 합니다.
+저는 24년 하반기부터 로지메이트라는 ERP(Enterprise Resource Planning, 전사적 자원 관리) 제품의 프론트엔드 개발을 담당하고 있습니다. 입사 후 첫 담당 업무인 리디자인을 담당하고 개발을 진행하면서 자체 디자인 시스템 (LDS : Logimate Design System)을 구축하고 적용해본 경험을 공유해보고자 합니다.
 
 &nbsp;
 
