@@ -11,6 +11,8 @@ updated: 2024-08-15 12:00
 
 저는 24년 하반기부터 로지메이트라는 ERP(Enterprise Resource Planning, 전사적 자원 관리) 제품의 프론트엔드 개발을 담당하고 있습니다. 입사 후 운영 개발 건 들을 진행하면서 좋은 코드에 대해 고민하고 실제 프로뎍션 코드에도 반영했던 내용들을 공유해보고자 합니다.
 
+> (disclaimer) 포스트 내에 등장하는 코드들은 실제 프로덕션 코드와는 다른, 글의 맥락에 맞게 재구성한 코드 임을 알려드립니다.
+
 &nbsp;
 
 ## 목차
@@ -39,7 +41,8 @@ updated: 2024-08-15 12:00
 
 ```typescript
 // 변경전
-... getResults = () => {
+... 
+const getResults = () => {
   let baseUrl = '/lists';
   
   baseUrl += `?paramA=${searchObj.paramA}&`;
@@ -214,7 +217,7 @@ type ParamType = {
 export const validateSearchParams = (...params: ParamType[]) => {
   let result = false;
 
-  for(let param of params) {
+  for(const param of params) {
     if(!param.value || param.value === '' || param.value === undefined) {
       alert(`${param.name}은(는) 필수값입니다.`);
       result = false;
@@ -255,6 +258,7 @@ const handleSubmit = (e?:React.FormEvent) => {
 #### 참고하면 좋은 링크
 
 - 이터러블 객체 : [링크](https://ko.javascript.info/iterable){:target="_blank"}
+- 좋은 코드 작성의 기준과 방법 : [링크](https://f-lab.kr/insight/how-to-write-good-code-20240828){:target="_blank"}
 - 선언적인 코드 작성하기 : [링크](https://toss.tech/article/frontend-declarative-code){:target="_blank"}
 
 &nbsp;
