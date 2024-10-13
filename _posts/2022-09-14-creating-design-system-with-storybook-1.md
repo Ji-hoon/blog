@@ -95,19 +95,9 @@ Atom 컴포넌트 단위에는 **가장 기본이 되는 UI 요소**를 정의�
 
 #### 4-1. Typography
 
-```typescript
-type HeadingPropType = {
-  $align?: string;
-  $color? : string;
-}
+![Typography](/blog/assets/posts/asset-lds-typography.png)
 
-export const LDSTitle  = styled.h4<HeadingPropType>`
-  ...
-  text-align: ${(props) => props.$align};
-  color: ${(props) => props.$color || null};
-`
-...
-```
+&nbsp;
 
 제품에서 사용되는 모든 텍스트들을 styled 컴포넌트 객체들로 정의한 **Typography** 컴포넌트 입니다. label, subTitle, title, heading, Tagline 등으로 사이즈 단위로 정의하며, 각 컴포넌트들은 props로 `$color (string)`와 `$weight (string)` props를 전달받아 스타일을 적용합니다.
 
@@ -115,17 +105,9 @@ export const LDSTitle  = styled.h4<HeadingPropType>`
 
 #### 4-2. Spacing
 
-```typescript
-type SpacingPropType = {
-  $direction: 'V' | 'H';
-  $value: number;
-}
+![Spacing](/blog/assets/posts/asset-lds-spacing.png)
 
-export const LDSSpacing = styled.div<SpacingPropType>`
-  margin-top: ${(props) => props.$direction === 'V' ? props.$value : 0}px;
-  margin-left: ${(props) => props.$direction === 'H' ? props.$value : 0}px;
-`
-```
+&nbsp;
 
 레이아웃을 구성할 때 단순히 여백을 구현하고 싶을 때 사용되는 **Spacing** 컴포넌트 입니다. props로 `$direction`과 `$value`를 전달받습니다.
 
@@ -133,28 +115,9 @@ export const LDSSpacing = styled.div<SpacingPropType>`
 
 #### 4-3. Profile
 
-```typescript
-type ProfileProps = {
-  $type: 'USER' | 'ICON' | 'IMAGE' | 'BADGE';
-  $size: 'XS' | 'SM' | 'MD' | 'XL';
-  $imageUrl?: string;
-  $icon?: React.ReactNode;
-  ...
-}
+![Profile](/blog/assets/posts/asset-lds-profile.png)
 
-export default function LDSProfile({$type, $size, $imageUrl, ...props}:ProfileProps) {
-  return (
-    <>
-      <LDSProfileStyle $size={$size} $type={$type} ...props>
-        ...
-        {$type === 'ICON' && $icon} //$type이 'ICON'이라면 props로 할당받은 Icon 엘리먼트를 렌더링합니다.
-        {$type === 'IMAGE' && <img src={$imageUrl} alt={'Profile'} /> } // $type이 'IMAGE'라면 props로 할당받은 $imageUrl을 img 태그로 표시합니다.
-        ...
-      </LDSProfileStyle>
-    </>
-  )
-}
-```
+&nbsp;
 
 특정 사용자 또는 계정의 프로필을 표시할 때 사용되는 **Profile** 컴포넌트 입니다. props로 `$type`과 `$size`, `$imageUrl` 등을 전달받습니다. props로 전달받은 `$type`이 어떤 값이냐에 따라 리턴하는 요소를 다르게 렌러딩 합니다. 
 
@@ -162,24 +125,9 @@ export default function LDSProfile({$type, $size, $imageUrl, ...props}:ProfilePr
 
 #### 4-4. Badge
 
-```typescript
-type BadgeProps = {
-  $type: 'NUMBER' | 'LABEL';
-  $size: 'SM' | 'MD';
-  $value: number | string;
-  ...
-}
+![Badge](/blog/assets/posts/asset-lds-badge.png)
 
-export default function LDSBadge({...props}:BadgeProps) {
-  return (
-    <LDSBadgeStyle {...props} className="lds-badge">
-      <LDSLabel3XS $weight={'SEMIBOLD'}>{props.$value}</LDSLabel3XS>
-    </LDSBadgeStyle>
-  )
-}
-
-...
-```
+&nbsp;
 
 숫자, 레이블 등 뱃지 UI를 표시할 때 사용되는 **Badge** 컴포넌트 입니다. props로 `$type`과 `$size`, `$value` 등을 전달받습니다.
 
@@ -187,29 +135,9 @@ export default function LDSBadge({...props}:BadgeProps) {
 
 #### 4-5. Checkbox
 
-```typescript
-type CheckboxPropType = {
-  $isSelected?: boolean;
-  $label?: string; 
-  ...
-}
+![Checkbox](/blog/assets/posts/asset-lds-checkbox.png)
 
-export default function LDSCheckbox({...props}: CheckboxPropType) {
-  const [checked, setChecked] = useState(props.$isSelected);
-
-  return (
-     <LDSCheckBoxWrapperStyle {...props} className="lds-checkbox">
-        <input type="checkbox" defaultChecked={$isSelected} />
-        <LDSCheckboxStyle {...props}>
-          {checked && <FiCheck strokeWidth={4} size={14} />}
-        </LDSCheckboxStyle>
-        {$label && <LDSLabelMD $weight={'MEDIUM'}>{$label}</LDSLabelMD>}
-     </LDSCheckBoxWrapperStyle>
-  )
-}
-
-...
-```
+&nbsp;
 
 Form 에서 사용되는 **Checkbox** 컴포넌트 입니다. props로 `$isSelected`와 `$label` 등을 전달받고 input element는 숨기처리 후 커스텀하게 구현된 체크박스 UI를 표시합니다. `$label` 존재 한다면 체크박스와 함께 텍스트 값도 렌더링합니다.
 
@@ -217,33 +145,9 @@ Form 에서 사용되는 **Checkbox** 컴포넌트 입니다. props로 `$isSelec
 
 #### 4-6. Button
 
-```typescript
-type ButtonProps = {
-  $type: 'LINK' | 'BUTTON' | 'SUBMIT';
-  $label?: string;
-  $linkTo?: string;
-  ...
-}
+![Button](/blog/assets/posts/asset-lds-button.png)
 
-export default function LDSButton({...props}: ButtonProps) {
-  return (
-    <>
-      {$type === 'LINK' ? 
-        <LDSBaseButtonStyle {...props} to={$linkTo || null}>
-          ...
-        </LDSBaseButtonStyle>
-      : <LDSBaseButtonStyle {...props} as='button' type={$type === 'BUTTON' ? 'button' : 'submit'}>
-          ...
-        </LDSBaseButtonStyle>
-      }
-    </>
-  )
-}
-
-const LDSBaseButtonStyle = styled(NavLink)<ButtonProps>`
-  ...
-`
-```
+&nbsp;
 
 여러 UI에서 가장 빈번하게 사용되는 **Button** 컴포넌트 입니다. props로 `$type`와 `$label`, `$linkTo` 등을 전달받습니다. 여기서는 `$type`이 **'LINK'** 타입이라면 react-router-dom에서 지원하는 `NavLink` 컴포넌트를 styled 컴포넌트에서 확장한 스타일을 사용해서 적용하고, 아닌 경우에는 `as` 옵션을 사용해서 `button` 엘리먼트로 렌더링할 수 있습니다.
 
@@ -255,73 +159,81 @@ const LDSBaseButtonStyle = styled(NavLink)<ButtonProps>`
 
 Module 컴포넌트로는 기본 단위의 **Atom 컴포넌트가 조합된 형태의 UI 요소**를 정의합니다.
 
-> Inputfield
+&nbsp;
 
-(image)
+#### 5-1. Inputfield
+
+![Inputfield](/blog/assets/posts/asset-lds-typography.png)
 
 &nbsp;
 
-Form에서 가장 기본적으로 사용되는 **Inputfield** 컴포넌트입니다. 필드의 값 유무에 따라 값을 삭제하는 Button 컴포넌트가 선택적으로 렌더링되는 합성 컴포넌트로 구현했습니다. props로 `$type`과 `$fieldName`, `$placeholder`, `$register`, `$watch`, `$resetField` 등 reack hook form에서 사용되는 메소드들을 전달 받습니다.
+Form에서 가장 기본적으로 사용되는 **Inputfield** 컴포넌트입니다. 필드의 입력 값 유무에 따라 값을 삭제하는 **Button** 컴포넌트가 선택적으로 렌더링되는 합성 컴포넌트로 구현했습니다. props로는 형태를 결정하는 `$type`과 `$status`, `$fieldName`, `$placeholder` 와  `$register`, `$watch`, `$resetField` 등 reack hook form에서 사용되는 메소드들을 전달 받아 상위 Form 엘리먼트에서 인풋필드의 값을 사용할 수 있도록 구성 합니다.
 
-> Select
+&nbsp;
 
-(image)
+#### 5-2. Select
+
+![Select](/blog/assets/posts/asset-lds-typography.png)
 
 &nbsp;
 
 역시 Form에서 기본적으로 사용되는 **Select** 컴포넌트입니다. multi props의 유무에 따라 여러 옵션을 선택할 수 있도록 구현했습니다.
 
-> List item
+&nbsp;
 
-(image)
+#### 5-3. List item
+
+![List item](/blog/assets/posts/asset-lds-typography.png)
 
 &nbsp;
 
 다양한 배리에이션이 제공되는 **List Item** 컴포넌트입니다. 드롭다운 리스트에 포함되는 `LIST` 타입, 체크박스 옵션이 포함되는 `TOGGLE` 타입, 클릭 시 메뉴가 전환될 수 있는 `MENU` 타입, 알림 드롭다운에 포함되는 `NOTIFICATION` 타입 등 props로 전달된 타입 정보에 따라 각각 다른 스타일의 output이 도출될 수 있도록 구현했습니다.
 
-> List Header
+&nbsp;
 
-(image)
+#### 5-4. List Header
+
+![List Header](/blog/assets/posts/asset-lds-typography.png)
 
 &nbsp;
 
 앞서 설명한 List Item과 같이 표시하는 **List Header** 컴포넌트입니다. 메뉴 리스트에 표시되는 클릭하여 리스트를 펼치고 접을 수 있는 `EXPANDALBE` 타입, 정적인 리스트에 표시되는 `STATIC` 타입, 옵션 리스트와 같이 표시되는 `OPTION` 타입 등 props로 전달된 타입 정보에 따라 다른 결과물을 얻을 수 있도록 구현했습니다.
 
-> List Group
+&nbsp;
 
-(image)
+##### 5-5. List Group
+
+![List Group](/blog/assets/posts/asset-lds-typography.png)
 
 &nbsp;
 
 List Item과 List Header를 조합해서 사용하는 **List Group** 컴포넌트입니다. 드롭다운 리스트 또는 셀렉트 옵션 리스트 등에서 사용되는 리스트 그룹을 정의합니다.
 
-> Button Group
-
-(image)
-
 &nbsp;
 
-Button 컴포넌트 여러 개를 조합한 **Button Group** 컴포넌트입니다.
+#### 5-7. Profile Group
 
-> Profile Group
-
-(image)
+![Profile Group](/blog/assets/posts/asset-lds-typography.png)
 
 &nbsp;
 
 Profile 컴포넌트와 text 정보, Button 컴포넌트가 조합된 **Profile Group** 컴포넌트입니다.
 
-> Tab Navigation
+&nbsp;
 
-(image)
+#### 5-8. Tab Navigation
+
+![Tab Navigation](/blog/assets/posts/asset-lds-typography.png)
 
 &nbsp;
 
 여러개의 Tab 컴포넌트가 결합된 **Tab Navigation** 컴포넌트입니다. props로는 `$activeId`와 `$type`을 전달받아 활성탭과 비활성탭, 확장 or 비확장 타입의 다른 output이 도출될 수 있도록 구현했습니다.
 
-> Tooltip
+&nbsp;
 
-(image)
+#### 5-9. Tooltip
+
+![Tooltip](/blog/assets/posts/asset-lds-typography.png)
 
 &nbsp;
 
@@ -333,7 +245,9 @@ Profile 컴포넌트와 text 정보, Button 컴포넌트가 조합된 **Profile 
 
 Layout 컴포넌트로는 **Atom과 Module을 결합하여 독립적으로 사용될 수 있는 UI 요소**를 정의합니다. Layout 컴포넌트 단위부터는 동작에 대한 자체 로직을 포함하게 됩니다.
 
-> Dropdown
+&nbsp;
+
+#### 6-1. Dropdown
 
 (image)
 
@@ -341,7 +255,9 @@ Layout 컴포넌트로는 **Atom과 Module을 결합하여 독립적으로 사�
 
 특정 액션 버튼을 클릭 시, 또는 셀렉트 옵션을 확장 했을 때 표시되는 **Dropdown** 컴포넌트입니다. 이 때 컴포넌트의 children을 외부에서 합성 컴포넌트 형태로 전달받게되며, 컴포넌트 레벨에서는 위치를 계산하고 백드롭 영역을 클릭 시 드롭다운 컴포넌트를 닫는 등 컴포넌트를 조작하는 로직을 같이 작성하여 구현합니다.
 
-> Modal
+&nbsp;
+
+#### 6-2. Modal
 
 (image)
 
@@ -349,7 +265,9 @@ Layout 컴포넌트로는 **Atom과 Module을 결합하여 독립적으로 사�
 
 특정 정보를 전달하거나 액션을 수행하기 위해 필요한 정보를 전달할 때 표시되는 **Modal** 컴포넌트입니다. Dropdown과 마찬가지로 React Portal을 사용해서 구현하였으며, children 요소를 외부에서 합성 컴포넌트 형태로 전달받도록 구현했습니다.
 
-> Sidebar
+&nbsp;
+
+#### 6-3. Sidebar
 
 (image)
 
@@ -365,17 +283,25 @@ Layout 컴포넌트로는 **Atom과 Module을 결합하여 독립적으로 사�
 
 > Provider 설정
 
-작성한 컴포넌트를 스토리북에서 확인하려면 `컴포넌트.stories.tsx` 파일을 생성해야 합니다. 이 때 Redux나 Recoil 등 상태관리를 위한 Provider를 사용하는 컴포넌트가 있다면 해당 Provider를 스토리 파일에 정의합니다.
+(참고 코드 추가)
+
+작성한 컴포넌트를 스토리북에서 확인하려면 `컴포넌트.stories.tsx` 파일을 생성해야 합니다. 이 때 Redux나 Recoil 등 상태관리를 위한 Provider를 사용하는 컴포넌트가 있다면 해당 Provider를 스토리 파일에 정의합니다. 또한 react-hook-form 같은 라이브러리에서 지원하는 메소드를 사용하는 컴포넌트가 있다면 이 또한 Provider에 설정하는 작업이 필요합니다.
 
 > 디폴트 html 설정
+
+(참고 코드 및 이미지 추가)
 
 root 외에 div 엘리먼트를 사용하는 React Portal이 정의된 컴포넌트라면 스토리북 디폴트 html에 해당 div 엘리먼트를 정의해야 합니다.
 
 > 컴포넌트 폴더 구조와 설명 및 서브 컴포넌트 설정
 
-컴포넌트 폴더 구조는 Atom, Module, Layout 3가지 분류로 나누고, 하위에 해당 분류의 컴포넌트가 속할 수 있도록 아래처럼 경로를 설정합니다. 컴포넌트 내부에 다른 컴포넌트가 포함된 합성 컴포넌트의 경우 서브 컴포넌트로 표시될 수 있게 설정할 수 있습니다.
+(참고 이미지 추가)
+
+컴포넌트 폴더 구조는 Atom, Module, Layout 3가지 분류로 나누고, 하위에 해당 분류의 컴포넌트가 속할 수 있도록 이미지처럼 경로를 설정합니다. 컴포넌트 내부에 다른 컴포넌트가 포함된 합성 컴포넌트의 경우 서브 컴포넌트로 표시될 수 있게 설정할 수 있습니다.
 
 > 컴포넌트의 props 설명 추가
+
+(참고 코드 or 이미지 추가)
 
 컴포넌트에서 사용되는 모든 props에 대해서 어떤 선택지가 있고, 어떤 상태를 변형시키게되는 지 설명을 정의할 수 있습니다.
 
