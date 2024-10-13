@@ -93,11 +93,21 @@ Atom 컴포넌트 단위에는 **가장 기본이 되는 UI 요소**를 정의�
 
 > Typography
 
-(이미지)
+```typescript
+type HeadingPropType = {
+  $align?: string;
+  $color? : string;
+}
 
-&nbsp;
+export const LDSTitle  = styled.h4<HeadingPropType>`
+  ...
+  text-align: ${(props) => props.$align};
+  color: ${(props) => props.$color || null};
+`
+...
+```
 
-제품에서 사용되는 모든 텍스트들을 styled 컴포넌트 객체들로 정의한 **Typography** 컴포넌트 입니다. xxs 사이즈부터 3xl 사이즈까지 정의하며, 각 컴포넌트들은 props로 `$color (string)`와 `$weight (string)` props를 전달받습니다.
+제품에서 사용되는 모든 텍스트들을 styled 컴포넌트 객체들로 정의한 **Typography** 컴포넌트 입니다. label, subTitle, title, heading, Tagline 등으로 사이즈 단위로 정의하며, 각 컴포넌트들은 props로 `$color (string)`와 `$weight (string)` props를 전달받아 스타일을 적용합니다.
 
 > Spacing
 
@@ -319,6 +329,10 @@ TBD...
 &nbsp;
 
 또 이번에 구축한 디자인 시스템의 컴포넌트들은 실제 제품에 점진적으로 반영하고 있기에 처음부터 모든 컴포넌트를 준비하고 제품에 적용하고 교체하는 방식 보다는 기존 디자인과 신규 디자인을 선택 가능하도록 사용자에게 제공하고, 적응기간을 제공하는 동안 그 다음 단계의 디자인을 적용하고 교체하는 방식을 채택했습니다. 다음 주제로는 '서비스중인 제품에 디자인 리뉴얼을 적용하기'에 대해서 공유해보도록 하겠습니다.
+
+&nbsp;
+
+---
 
 &nbsp;
 
