@@ -33,7 +33,7 @@ updated: 2024-01-22 12:00
 
 ## 1. 로딩 인디케이터와 사용자 경험
 
-![loading indicators](https://media.licdn.com/dms/image/D4D12AQGOVO3YnUK39w/article-inline_image-shrink_1000_1488/0/1689576267966?e=1714003200&v=beta&t=VJCU8ZRHhfd4GIOgPcL_0WoFuCzqmQpjBt8h8xYxLEk)*다양한 타입의 loading indicator -- [출처](https://www.linkedin.com/pulse/beyond-loading-bar-elevating-user-experience-dynamic-progress-murthy/){:target="_blank"}*{: .caption}
+![loading indicators](/blog/assets/posts/asset-loading-indicators.png)*다양한 타입의 loading indicator -- [출처](https://www.linkedin.com/pulse/beyond-loading-bar-elevating-user-experience-dynamic-progress-murthy/){:target="_blank"}*{: .caption}
 
 &nbsp;
 

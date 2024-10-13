@@ -111,59 +111,131 @@ export const LDSTitle  = styled.h4<HeadingPropType>`
 
 > Spacing
 
-(이미지)
+```typescript
+type SpacingPropType = {
+  $direction: 'V' | 'H';
+  $value: number;
+}
 
-&nbsp;
+export const LDSSpacing = styled.div<SpacingPropType>`
+  margin-top: ${(props) => props.$direction === 'V' ? props.$value : 0}px;
+  margin-left: ${(props) => props.$direction === 'H' ? props.$value : 0}px;
+`
+```
 
-레이아웃을 구성할 때 단순히 여백을 구현하고 싶을 때 사용되는 **Spacing** 컴포넌트 입니다. props로 `$direction ('V' | 'H')`과 `$value (number)`를 전달받습니다.
+레이아웃을 구성할 때 단순히 여백을 구현하고 싶을 때 사용되는 **Spacing** 컴포넌트 입니다. props로 `$direction`과 `$value`를 전달받습니다.
 
 > Profile
 
-(이미지 GIF)
+```typescript
+type ProfileProps = {
+  $type: 'USER' | 'ICON' | 'IMAGE' | 'BADGE';
+  $size: 'XS' | 'SM' | 'MD' | 'XL';
+  $imageUrl?: string;
+  $icon?: React.ReactNode;
+  ...
+}
 
-&nbsp;
+export default function LDSProfile({$type, $size, $imageUrl, ...props}:ProfileProps) {
+  return (
+    <>
+      <LDSProfileStyle $size={$size} $type={$type} ...props>
+        ...
+        {$type === 'ICON' && $icon} //$type이 'ICON'이라면 props로 할당받은 Icon 엘리먼트를 렌더링합니다.
+        {$type === 'IMAGE' && <img src={$imageUrl} alt={'Profile'} /> } // $type이 'IMAGE'라면 props로 할당받은 $imageUrl을 img 태그로 표시합니다.
+        ...
+      </LDSProfileStyle>
+    </>
+  )
+}
+```
 
-특정 사용자 또는 계정의 프로필을 표시할 때 사용되는 **Profile** 컴포넌트 입니다. props로 `$type`과 `$size`, `$status`를 전달받습니다.
+특정 사용자 또는 계정의 프로필을 표시할 때 사용되는 **Profile** 컴포넌트 입니다. props로 `$type`과 `$size`, `$imageUrl` 등을 전달받습니다. props로 전달받은 `$type`이 어떤 값이냐에 따라 리턴하는 요소를 다르게 렌러딩 합니다. 
 
 > Badge
 
-(image)
+```typescript
+type BadgeProps = {
+  $type: 'NUMBER' | 'LABEL';
+  $size: 'SM' | 'MD';
+  $value: number | string;
+  ...
+}
 
-&nbsp;
+export default function LDSBadge({...props}:BadgeProps) {
+  return (
+    <LDSBadgeStyle {...props} className="lds-badge">
+      <LDSLabel3XS $weight={'SEMIBOLD'}>{props.$value}</LDSLabel3XS>
+    </LDSBadgeStyle>
+  )
+}
 
-숫자, 레이블 등 뱃지 UI를 표시할 때 사용되는 **Badge** 컴포넌트 입니다. props로 `$type`과 `$size`, `$status`를 전달받습니다.
+...
+```
 
-> Radio
-
-(image)
-
-&nbsp;
-
-Form 에서 사용되는 **Radio** 컴포넌트 입니다. props로 `$size`와 `$status`를 전달받습니다.
+숫자, 레이블 등 뱃지 UI를 표시할 때 사용되는 **Badge** 컴포넌트 입니다. props로 `$type`과 `$size`, `$value` 등을 전달받습니다.
 
 > Checkbox
 
-(image)
+```typescript
+type CheckboxPropType = {
+  $isSelected?: boolean;
+  $label?: string; 
+  ...
+}
 
-&nbsp;
+export default function LDSCheckbox({...props}: CheckboxPropType) {
+  const [checked, setChecked] = useState(props.$isSelected);
 
-Form 에서 사용되는 **Checkbox** 컴포넌트 입니다. props로 `$size`와 `$status`를 전달받습니다.
+  return (
+     <LDSCheckBoxWrapperStyle {...props} className="lds-checkbox">
+        <input type="checkbox" defaultChecked={$isSelected} />
+        <LDSCheckboxStyle {...props}>
+          {checked && <FiCheck strokeWidth={4} size={14} />}
+        </LDSCheckboxStyle>
+        {$label && <LDSLabelMD $weight={'MEDIUM'}>{$label}</LDSLabelMD>}
+     </LDSCheckBoxWrapperStyle>
+  )
+}
+
+...
+```
+
+Form 에서 사용되는 **Checkbox** 컴포넌트 입니다. props로 `$isSelected`와 `$label` 등을 전달받고 input element는 숨기처리 후 커스텀하게 구현된 체크박스 UI를 표시합니다. `$label` 존재 한다면 체크박스와 함께 텍스트 값도 렌더링합니다.
 
 > Button (Text, Box, Tab)
 
-(image)
+```typescript
+type ButtonProps = {
+  $type: 'LINK' | 'BUTTON' | 'SUBMIT';
+  $label?: string;
+  $linkTo?: string;
+  ...
+}
 
-&nbsp;
+export default function LDSButton({...props}: ButtonProps) {
+  return (
+    <>
+      {$type === 'LINK' ? 
+        <LDSBaseButtonStyle {...props} to={$linkTo || null}>
+          ...
+        </LDSBaseButtonStyle>
+      : <LDSBaseButtonStyle {...props} as='button' type={$type === 'BUTTON' ? 'button' : 'submit'}>
+          ...
+        </LDSBaseButtonStyle>
+      }
+    </>
+  )
+}
 
-여러 UI에서 가장 빈번하게 사용되는 **Button** 컴포넌트 입니다. props로 `$size`와 `$type`, `$status`, `$usage` 등을 전달받습니다. 베리에이션이 많지만 스토리북에서 props를 설정해볼 수 있고, 설정한 props에 대한 컴포넌트 코드를 복사해서 사용할 수 있습니다.
+const LDSBaseButtonStyle = styled(NavLink)<ButtonProps>`
+  ...
+`
+```
 
-> Switch
+여러 UI에서 가장 빈번하게 사용되는 **Button** 컴포넌트 입니다. props로 `$type`와 `$label`, `$linkTo` 등을 전달받습니다. 여기서는 `$type`이 **'LINK'** 타입이라면 react-router-dom에서 지원하는 `NavLink` 컴포넌트를 styled 컴포넌트에서 확장한 스타일을 사용해서 적용하고, 아닌 경우에는 `as` 옵션을 사용해서 `button` 엘리먼트로 렌더링할 수 있습니다.
 
-(image)
-
-&nbsp;
-
-특정 옵션의 유무를 설정하는 **Switch** 컴포넌트 입니다. props로 `$size`와 `$status`를 전달받습니다.
+> 참고 - Extending Styles : [링크](https://styled-components.com/docs/basics#extending-styles){:target="_blank"}
 
 &nbsp;
 
