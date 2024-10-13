@@ -91,7 +91,7 @@ updated: 2022-09-15 12:00
 
 Atom 컴포넌트 단위에는 **가장 기본이 되는 UI 요소**를 정의합니다. Atom 컴포넌트 그 자체로는 기능에 대한 어떠한 로직도 포함하고 있지 않으며, 특정 액션이 필요한 경우 (e.g. `onClick`)는 상위 컴포넌트에서 props로 주입받거나 특정 상태를 전달받았을 때 처리할 로직이나 형태를 선언적으로 정의합니다. 다만 전달받는 props에 따른 시각적 형태나 액션을 반영하기위해 **styled component**를 활용해서 다양한 케이스의 아웃풋에 대응할 수 있도록 스타일을 구성합니다.
 
-> Typography
+#### Typography
 
 ```typescript
 type HeadingPropType = {
@@ -109,7 +109,7 @@ export const LDSTitle  = styled.h4<HeadingPropType>`
 
 제품에서 사용되는 모든 텍스트들을 styled 컴포넌트 객체들로 정의한 **Typography** 컴포넌트 입니다. label, subTitle, title, heading, Tagline 등으로 사이즈 단위로 정의하며, 각 컴포넌트들은 props로 `$color (string)`와 `$weight (string)` props를 전달받아 스타일을 적용합니다.
 
-> Spacing
+#### Spacing
 
 ```typescript
 type SpacingPropType = {
@@ -125,7 +125,7 @@ export const LDSSpacing = styled.div<SpacingPropType>`
 
 레이아웃을 구성할 때 단순히 여백을 구현하고 싶을 때 사용되는 **Spacing** 컴포넌트 입니다. props로 `$direction`과 `$value`를 전달받습니다.
 
-> Profile
+#### Profile
 
 ```typescript
 type ProfileProps = {
@@ -152,7 +152,7 @@ export default function LDSProfile({$type, $size, $imageUrl, ...props}:ProfilePr
 
 특정 사용자 또는 계정의 프로필을 표시할 때 사용되는 **Profile** 컴포넌트 입니다. props로 `$type`과 `$size`, `$imageUrl` 등을 전달받습니다. props로 전달받은 `$type`이 어떤 값이냐에 따라 리턴하는 요소를 다르게 렌러딩 합니다. 
 
-> Badge
+#### Badge
 
 ```typescript
 type BadgeProps = {
@@ -175,7 +175,7 @@ export default function LDSBadge({...props}:BadgeProps) {
 
 숫자, 레이블 등 뱃지 UI를 표시할 때 사용되는 **Badge** 컴포넌트 입니다. props로 `$type`과 `$size`, `$value` 등을 전달받습니다.
 
-> Checkbox
+#### Checkbox
 
 ```typescript
 type CheckboxPropType = {
@@ -203,7 +203,7 @@ export default function LDSCheckbox({...props}: CheckboxPropType) {
 
 Form 에서 사용되는 **Checkbox** 컴포넌트 입니다. props로 `$isSelected`와 `$label` 등을 전달받고 input element는 숨기처리 후 커스텀하게 구현된 체크박스 UI를 표시합니다. `$label` 존재 한다면 체크박스와 함께 텍스트 값도 렌더링합니다.
 
-> Button (Text, Box, Tab)
+#### Button
 
 ```typescript
 type ButtonProps = {
