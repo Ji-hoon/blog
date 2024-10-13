@@ -83,11 +83,13 @@ updated: 2022-09-15 12:00
 
 ## 4. Atom 컴포넌트 작성하기
 
-Atom 컴포넌트 그룹에는 **가장 기본이 되는 UI 요소**를 정의합니다. Atom 컴포넌트 그 자체로는 기능에 대한 어떠한 로직도 포함하고 있지 않으며, 특정 액션이 필요한 경우 (e.g. `onClick`)는 상위 컴포넌트에서 props로 주입받거나 특정 상태를 전달받았을 때 처리할 로직을 선언적으로 정의합니다. 다만 전달받는 props에 따른 시각적 형태나 액션을 반영하기위해 **styled component**를 활용해서 다양한 케이스의 아웃풋에 대응할 수 있도록 스타일을 구성합니다.
+Atom 컴포넌트 단위에는 **가장 기본이 되는 UI 요소**를 정의합니다. Atom 컴포넌트 그 자체로는 기능에 대한 어떠한 로직도 포함하고 있지 않으며, 특정 액션이 필요한 경우 (e.g. `onClick`)는 상위 컴포넌트에서 props로 주입받거나 특정 상태를 전달받았을 때 처리할 로직이나 형태를 선언적으로 정의합니다. 다만 전달받는 props에 따른 시각적 형태나 액션을 반영하기위해 **styled component**를 활용해서 다양한 케이스의 아웃풋에 대응할 수 있도록 스타일을 구성합니다.
 
 > Typography
 
 (이미지)
+
+&nbsp;
 
 제품에서 사용되는 모든 텍스트들을 styled 컴포넌트 객체들로 정의한 **Typography** 컴포넌트 입니다. xxs 사이즈부터 3xl 사이즈까지 정의하며, 각 컴포넌트들은 props로 `$color (string)`와 `$weight (string)` props를 전달받습니다.
 
@@ -95,11 +97,15 @@ Atom 컴포넌트 그룹에는 **가장 기본이 되는 UI 요소**를 정의�
 
 (이미지)
 
+&nbsp;
+
 레이아웃을 구성할 때 단순히 여백을 구현하고 싶을 때 사용되는 **Spacing** 컴포넌트 입니다. props로 `$direction ('V' | 'H')`과 `$value (number)`를 전달받습니다.
 
 > Profile
 
 (이미지 GIF)
+
+&nbsp;
 
 특정 사용자 또는 계정의 프로필을 표시할 때 사용되는 **Profile** 컴포넌트 입니다. props로 `$type`과 `$size`, `$status`를 전달받습니다.
 
@@ -107,11 +113,15 @@ Atom 컴포넌트 그룹에는 **가장 기본이 되는 UI 요소**를 정의�
 
 (image)
 
+&nbsp;
+
 숫자, 레이블 등 뱃지 UI를 표시할 때 사용되는 **Badge** 컴포넌트 입니다. props로 `$type`과 `$size`, `$status`를 전달받습니다.
 
 > Radio
 
 (image)
+
+&nbsp;
 
 Form 에서 사용되는 **Radio** 컴포넌트 입니다. props로 `$size`와 `$status`를 전달받습니다.
 
@@ -119,17 +129,23 @@ Form 에서 사용되는 **Radio** 컴포넌트 입니다. props로 `$size`와 `
 
 (image)
 
+&nbsp;
+
 Form 에서 사용되는 **Checkbox** 컴포넌트 입니다. props로 `$size`와 `$status`를 전달받습니다.
 
 > Button (Text, Box, Tab)
 
 (image)
 
+&nbsp;
+
 여러 UI에서 가장 빈번하게 사용되는 **Button** 컴포넌트 입니다. props로 `$size`와 `$type`, `$status`, `$usage` 등을 전달받습니다. 베리에이션이 많지만 스토리북에서 props를 설정해볼 수 있고, 설정한 props에 대한 컴포넌트 코드를 복사해서 사용할 수 있습니다.
 
 > Switch
 
 (image)
+
+&nbsp;
 
 특정 옵션의 유무를 설정하는 **Switch** 컴포넌트 입니다. props로 `$size`와 `$status`를 전달받습니다.
 
@@ -143,11 +159,15 @@ Module 컴포넌트로는 기본 단위의 **Atom 컴포넌트가 조합된 형�
 
 (image)
 
-Form에서 가장 기본적으로 사용되는 **Inputfield** 컴포넌트입니다. 필드의 값 유무에 따라 Button 컴포넌트가 선택적으로 렌더링되는 합성 컴포넌트로 구현했습니다. props로 $type과 $fieldName, $placeholder, $register, $watch, $resetField 등 reack hook form에서 사용되는 메소드들을 전달 받습니다.
+&nbsp;
+
+Form에서 가장 기본적으로 사용되는 **Inputfield** 컴포넌트입니다. 필드의 값 유무에 따라 값을 삭제하는 Button 컴포넌트가 선택적으로 렌더링되는 합성 컴포넌트로 구현했습니다. props로 `$type`과 `$fieldName`, `$placeholder`, `$register`, `$watch`, `$resetField` 등 reack hook form에서 사용되는 메소드들을 전달 받습니다.
 
 > Select
 
 (image)
+
+&nbsp;
 
 역시 Form에서 기본적으로 사용되는 **Select** 컴포넌트입니다. multi props의 유무에 따라 여러 옵션을 선택할 수 있도록 구현했습니다.
 
@@ -155,29 +175,31 @@ Form에서 가장 기본적으로 사용되는 **Inputfield** 컴포넌트입니
 
 (image)
 
-다양한 배리에이션이 제공되는 **List Item** 컴포넌트입니다. 드롭다운 리스트에 포함되는 LIST 타입, 체크박스 옵션이 포함되는 TOGGLE 타입, 클릭 시 메뉴가 전환될 수 있는 MENU 타입, 알림 드롭다운에 포함되는 NOTIFICATION 타입 등 props로 전달된 타입 정보에 따라 각각 다른 스타일의 output이 도출될 수 있도록 구현했습니다.
+&nbsp;
+
+다양한 배리에이션이 제공되는 **List Item** 컴포넌트입니다. 드롭다운 리스트에 포함되는 `LIST` 타입, 체크박스 옵션이 포함되는 `TOGGLE` 타입, 클릭 시 메뉴가 전환될 수 있는 `MENU` 타입, 알림 드롭다운에 포함되는 `NOTIFICATION` 타입 등 props로 전달된 타입 정보에 따라 각각 다른 스타일의 output이 도출될 수 있도록 구현했습니다.
 
 > List Header
 
 (image)
 
-앞서 설명한 List Item과 같이 표시하는 **List Header** 컴포넌트입니다. 메뉴 리스트에 표시되는 EXPANDALBE 타입, 정적 리스트에 표시되는 STATIC 타입, 옵션 리스트와 같이 표시되는 OPTION 타입 등 props로 전달된 타입 정보에 따라 다른 결과물을 얻을 수 있도록 구현했습니다.
+&nbsp;
+
+앞서 설명한 List Item과 같이 표시하는 **List Header** 컴포넌트입니다. 메뉴 리스트에 표시되는 클릭하여 리스트를 펼치고 접을 수 있는 `EXPANDALBE` 타입, 정적인 리스트에 표시되는 `STATIC` 타입, 옵션 리스트와 같이 표시되는 `OPTION` 타입 등 props로 전달된 타입 정보에 따라 다른 결과물을 얻을 수 있도록 구현했습니다.
 
 > List Group
 
 (image)
 
+&nbsp;
+
 List Item과 List Header를 조합해서 사용하는 **List Group** 컴포넌트입니다. 드롭다운 리스트 또는 셀렉트 옵션 리스트 등에서 사용되는 리스트 그룹을 정의합니다.
-
-> Toast
-
-(image)
-
-사용자 액션에 대해 시각적인 피드백을 줄 때 사용되는 **Toast** 컴포넌트입니다. props로는 $type, $description 등을 전달받습니다.
 
 > Button Group
 
 (image)
+
+&nbsp;
 
 Button 컴포넌트 여러 개를 조합한 **Button Group** 컴포넌트입니다.
 
@@ -185,23 +207,37 @@ Button 컴포넌트 여러 개를 조합한 **Button Group** 컴포넌트입니�
 
 (image)
 
+&nbsp;
+
 Profile 컴포넌트와 text 정보, Button 컴포넌트가 조합된 **Profile Group** 컴포넌트입니다.
 
 > Tab Navigation
 
 (image)
 
-여러개의 Tab 컴포넌트가 결합된 **Tab Navigation** 컴포넌트입니다. props로는 $activeId와 $type을 전달받아 활성탭과 비활성탭, 확장 or 비확장 타입의 다른 output이 도출될 수 있도록 구현했습니다.
+&nbsp;
+
+여러개의 Tab 컴포넌트가 결합된 **Tab Navigation** 컴포넌트입니다. props로는 `$activeId`와 `$type`을 전달받아 활성탭과 비활성탭, 확장 or 비확장 타입의 다른 output이 도출될 수 있도록 구현했습니다.
+
+> Tooltip
+
+(image)
+
+&nbsp;
+
+특정 버튼 또는 마우스 액션이 제공되는 UI의 액션에 대해 부가적인 설명을 제공해주는 **Tooltip** 컴포넌트입니다. props로는 `$position`, `$direction`, `$description` 등을 전달받습니다.
 
 &nbsp;
 
 ## 6. Layout 컴포넌트 작성하기
 
-Layout 컴포넌트로는 **Atom과 Module이 결합된 독립적으로 사용될 수 있는 UI 요소**를 정의합니다. Layout 컴포넌트 레벨부터는 동작에 대한 컴포넌트 동작에 대한 자체 로직을 포함하게 됩니다.
+Layout 컴포넌트로는 **Atom과 Module을 결합하여 독립적으로 사용될 수 있는 UI 요소**를 정의합니다. Layout 컴포넌트 단위부터는 동작에 대한 자체 로직을 포함하게 됩니다.
 
 > Dropdown
 
 (image)
+
+&nbsp;
 
 특정 액션 버튼을 클릭 시, 또는 셀렉트 옵션을 확장 했을 때 표시되는 **Dropdown** 컴포넌트입니다. 이 때 컴포넌트의 children을 외부에서 합성 컴포넌트 형태로 전달받게되며, 컴포넌트 레벨에서는 위치를 계산하고 백드롭 영역을 클릭 시 드롭다운 컴포넌트를 닫는 등 컴포넌트를 조작하는 로직을 같이 작성하여 구현합니다.
 
@@ -209,11 +245,15 @@ Layout 컴포넌트로는 **Atom과 Module이 결합된 독립적으로 사용�
 
 (image)
 
+&nbsp;
+
 특정 정보를 전달하거나 액션을 수행하기 위해 필요한 정보를 전달할 때 표시되는 **Modal** 컴포넌트입니다. Dropdown과 마찬가지로 React Portal을 사용해서 구현하였으며, children 요소를 외부에서 합성 컴포넌트 형태로 전달받도록 구현했습니다.
 
 > Sidebar
 
 (image)
+
+&nbsp;
 
 여러 페이지들에서 공통적으로 사용되는 **Sidebar** 컴포넌트입니다.
 
